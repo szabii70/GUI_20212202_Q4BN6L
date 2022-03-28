@@ -17,7 +17,11 @@
             <RowDefinition Height="65*"/>
             <RowDefinition Height="43*"/>
         </Grid.RowDefinitions>
-        <Image Source="/Views/Images/MainMenu.jpg" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill"/>
+        <!--<Image Source="/Views/Images/MainMenu.jpg" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill"/>-->
+        <Image Source="{Binding BackgroundImage}" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill"/>
+        
+        <!--<Image Source="/EscapeFromZaun.Logic;Component/Images/wallpaperbetter.com_1920x1080 (3).jpg" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill"/>-->
+        
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>

@@ -12,17 +12,34 @@
     <None Remove="Views\Images\PlayButton.png" />
     <None Remove="Views\Images\QuitButton.png" />
     <None Remove="Views\Images\SettingsButton.png" />
+    <None Remove="Views\Images\wallpaperbetter.com_1920x1080 %282%29.jpg" />
+    <None Remove="Views\Images\wallpaperbetter.com_1920x1080 %284%29.jpg" />
+    <None Remove="Views\Images\wallpaperbetter.com_1920x1080 (3).jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Views\Images\wallpaperbetter.com_1920x1080 (2).jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\wallpaperbetter.com_1920x1080 (3).jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Views\Images\MainMenu.jpg" />
+    <ProjectReference Include="..\EscapeFromZaun.Logic\EscapeFromZaun.Logic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Views\Images\PlayButton.png" />
     <Resource Include="Views\Images\QuitButton.png" />
     <Resource Include="Views\Images\SettingsButton.png" />
+    <Resource Include="Views\Images\wallpaperbetter.com_1920x1080 (4).jpg" />
   </ItemGroup>
 
 </Project>
