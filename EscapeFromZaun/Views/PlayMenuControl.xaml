@@ -8,25 +8,52 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
+            <RowDefinition Height="18*"/>
             <RowDefinition Height="30*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="120*"/>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="140*"/>
+            <RowDefinition Height="85*"/>
             <RowDefinition Height="20*"/>
-            <RowDefinition Height="60*"/>
+            <RowDefinition Height="80*"/>
 
-            <RowDefinition Height="30*"/>
+            <RowDefinition Height="35*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="231*"/>
+            <ColumnDefinition Width="230*"/>
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="440*"/>
         </Grid.ColumnDefinitions>
+        <Grid Margin="0,1,0,0" Grid.Column="3" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+            <Button Margin="15" Background="{x:Null}">
+                
+            </Button>
+            <Button Margin="15" Background="{x:Null}" Grid.Row="1">
+                
+            </Button>
+
+        </Grid>
+        <Button Content="A" Grid.Column="1" Grid.Row="1">
+
+        </Button>
+        <Button Content="B" Grid.Column="2" Grid.Row="5">
+            
+        </Button>
+        <Button Content="C" Grid.Column="4" Grid.Row="5">
+
+        </Button>
+        <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3">
+            <ListBox>
+                <Label Content="Jinx 10/?"/>
+            </ListBox>
+        </Grid>
 
     </Grid>
 </UserControl>
