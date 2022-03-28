@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Views\Images\Arrow.png" />
     <Resource Include="Views\Images\ArrowRight.png" />
     <Resource Include="Views\Images\LoadGameButton.png" />
