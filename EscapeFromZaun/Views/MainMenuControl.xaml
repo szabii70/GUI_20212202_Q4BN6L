@@ -26,13 +26,13 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-            <Button Background="{x:Null}">
+            <Button Background="{x:Null}" Command="{Binding PlayCommand}">
                 <Image Source="/Views/Images/PlayButton.png" Stretch="Fill"></Image>
             </Button>
-            <Button Background="{x:Null}" Grid.Row="2">
+            <Button Background="{x:Null}" Grid.Row="2" Command="{Binding SettingsCommand}">
                 <Image Source="/Views/Images/SettingsButton.png" Stretch="Fill"></Image>
             </Button>
-            <Button Background="{x:Null}" Grid.Row="4">
+            <Button Background="{x:Null}" Grid.Row="4" Command="{Binding QuitCommand}">
                 <Image Source="/Views/Images/QuitButton.png" Stretch="Fill"></Image>
             </Button>
         </Grid>
