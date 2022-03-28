@@ -8,7 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Images\" />
+    <None Remove="Views\Images\Arrow.png" />
+    <None Remove="Views\Images\ArrowRight.png" />
+    <None Remove="Views\Images\LoadGameButton.png" />
+    <None Remove="Views\Images\NewGameButton.png" />
+    <None Remove="Views\Images\PlayMenu.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Images\Arrow.png" />
+    <Resource Include="Views\Images\ArrowRight.png" />
+    <Resource Include="Views\Images\LoadGameButton.png" />
+    <Resource Include="Views\Images\NewGameButton.png" />
+    <Resource Include="Views\Images\PlayMenu.png" />
   </ItemGroup>
 
 </Project>
