@@ -7,4 +7,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Views\Images\MainMenu.jpg" />
+    <None Remove="Views\Images\PlayButton.png" />
+    <None Remove="Views\Images\QuitButton.png" />
+    <None Remove="Views\Images\SettingsButton.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Views\Images\MainMenu.jpg" />
+    <Resource Include="Views\Images\PlayButton.png" />
+    <Resource Include="Views\Images\QuitButton.png" />
+    <Resource Include="Views\Images\SettingsButton.png" />
+  </ItemGroup>
+
 </Project>

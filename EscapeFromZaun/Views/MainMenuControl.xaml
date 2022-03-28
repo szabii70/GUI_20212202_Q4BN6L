@@ -7,6 +7,34 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Label Content="Heló Embereim" FontSize="70"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="118*"/>
+            <ColumnDefinition Width="213*"/>
+            <ColumnDefinition Width="402*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="43*"/>
+        </Grid.RowDefinitions>
+        <Image Source="/Views/Images/MainMenu.jpg" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill"/>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Button Background="{x:Null}">
+                <Image Source="/Views/Images/PlayButton.png" Stretch="Fill"></Image>
+            </Button>
+            <Button Background="{x:Null}" Grid.Row="2">
+                <Image Source="/Views/Images/SettingsButton.png" Stretch="Fill"></Image>
+            </Button>
+            <Button Background="{x:Null}" Grid.Row="4">
+                <Image Source="/Views/Images/QuitButton.png" Stretch="Fill"></Image>
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>
