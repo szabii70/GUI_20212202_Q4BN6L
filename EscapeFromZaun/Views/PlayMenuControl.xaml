@@ -27,27 +27,28 @@
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="440*"/>
         </Grid.ColumnDefinitions>
+        <Image Source="/Views/Images/PlayMenu.png" Stretch="Fill" Grid.RowSpan="8" Grid.ColumnSpan="7"></Image>
         <Grid Margin="0,1,0,0" Grid.Column="3" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25*"/>
                 <RowDefinition Height="25*"/>
             </Grid.RowDefinitions>
             <Button Margin="15" Background="{x:Null}">
-                
+                <Image Source="/Views/Images/NewGameButton.png" Stretch="Fill"></Image>
             </Button>
             <Button Margin="15" Background="{x:Null}" Grid.Row="1">
-                
+                <Image Source="/Views/Images/LoadGameButton.png" Stretch="Fill"/>
             </Button>
 
         </Grid>
-        <Button Content="A" Grid.Column="1" Grid.Row="1">
-
+        <Button Background="{x:Null}" Grid.Column="1" Grid.Row="1">
+            <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
         </Button>
-        <Button Content="B" Grid.Column="2" Grid.Row="5">
-            
+        <Button Background="{x:Null}" Grid.Column="2" Grid.Row="5">
+            <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
         </Button>
-        <Button Content="C" Grid.Column="4" Grid.Row="5">
-
+        <Button Background="{x:Null}" Grid.Column="4" Grid.Row="5">
+            <Image Source="/Views/Images/ArrowRight.png" Stretch="Fill"/>
         </Button>
         <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3" Margin="15">
             <ListBox>
