@@ -9,21 +9,17 @@
 
   <ItemGroup>
     <None Remove="Views\Images\MainMenu.jpg" />
+    <None Remove="Views\Images\MainMenu0.jpg" />
+    <None Remove="Views\Images\MainMenu2.jpg" />
+    <None Remove="Views\Images\MainMenu3.jpg" />
+    <None Remove="Views\Images\MainMenu4.jpg" />
+    <None Remove="Views\Images\MainMenu5.jpg" />
     <None Remove="Views\Images\PlayButton.png" />
     <None Remove="Views\Images\QuitButton.png" />
     <None Remove="Views\Images\SettingsButton.png" />
     <None Remove="Views\Images\wallpaperbetter.com_1920x1080 %282%29.jpg" />
     <None Remove="Views\Images\wallpaperbetter.com_1920x1080 %284%29.jpg" />
     <None Remove="Views\Images\wallpaperbetter.com_1920x1080 (3).jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Views\Images\wallpaperbetter.com_1920x1080 (2).jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Views\Images\wallpaperbetter.com_1920x1080 (3).jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -36,10 +32,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Views\Images\MainMenu0.jpg" />
+    <Resource Include="Views\Images\MainMenu2.jpg" />
+    <Resource Include="Views\Images\MainMenu3.jpg" />
+    <Resource Include="Views\Images\MainMenu4.jpg" />
+    <Resource Include="Views\Images\MainMenu5.jpg" />
     <Resource Include="Views\Images\PlayButton.png" />
     <Resource Include="Views\Images\QuitButton.png" />
     <Resource Include="Views\Images\SettingsButton.png" />
-    <Resource Include="Views\Images\wallpaperbetter.com_1920x1080 (4).jpg" />
   </ItemGroup>
 
 </Project>
