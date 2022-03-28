@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EscapeFromZaun.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace EscapeFromZaun
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainMenuWindowViewModel();
         }
     }
 }

@@ -4,9 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EscapeFromZaun"
+        xmlns:vms="clr-namespace:EscapeFromZaun.ViewModels"
+        xmlns:views="clr-namespace:EscapeFromZaun.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Window.Resources>
+        <DataTemplate x:Name="MainMenu" DataType="{x:Type vms:MainMenuWindowViewModel}">
+            <views:MainMenuControl DataContext="{Binding}"></views:MainMenuControl>
+        </DataTemplate>
 
-    </Grid>
+        <DataTemplate x:Name="Game" DataType="{x:Type vms:GameWindowViewModel}">
+            <views:GameControl DataContext="{Binding}"></views:GameControl>
+        </DataTemplate>
+
+        <DataTemplate x:Name="PlayMenu" DataType="{x:Type vms:PlayMenuWindowViewModel}">
+            <views:PlayMenuControl DataContext="{Binding}"></views:PlayMenuControl>
+        </DataTemplate>
+
+        <DataTemplate x:Name="ScoreMenu" DataType="{x:Type vms:ScoreMenuWindowViewModel}">
+            <views:ScoreMenuControl DataContext="{Binding}"></views:ScoreMenuControl>
+        </DataTemplate>
+
+        <DataTemplate x:Name="SettingsMenu" DataType="{x:Type vms:SettingsMenuWindowViewModel}">
+            <views:SettingsMenuControl DataContext="{Binding}"></views:SettingsMenuControl>
+        </DataTemplate>
+
+    </Window.Resources>
+    <UserControl Content="{Binding}"/>
 </Window>
