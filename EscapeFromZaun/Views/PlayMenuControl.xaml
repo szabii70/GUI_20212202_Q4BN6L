@@ -27,7 +27,30 @@
             <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="440*"/>
         </Grid.ColumnDefinitions>
-        <Image Source="/Views/Images/PlayMenu.png" Stretch="Fill" Grid.RowSpan="8" Grid.ColumnSpan="7"></Image>
+
+
+        <MediaElement Name="myMediaElement"  Grid.RowSpan="8" Grid.ColumnSpan="7" Stretch="Fill">
+            <MediaElement.Triggers>
+                <EventTrigger RoutedEvent="MediaElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <!-- The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
+                     over and over indefinitely.-->
+                                <MediaTimeline Source="Views/Animation/PlayMenu.mp4" 
+                                               Storyboard.TargetName="myMediaElement"  
+                                               RepeatBehavior="Forever"  />
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </MediaElement.Triggers>
+        </MediaElement>
+
+
+        <!--<Image Source="/Views/Images/PlayMenu.png" Stretch="Fill" Grid.RowSpan="8" Grid.ColumnSpan="7"></Image>-->
         <Grid Margin="0,1,0,0" Grid.Column="3" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25*"/>
