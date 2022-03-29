@@ -56,21 +56,21 @@
                 <RowDefinition Height="25*"/>
                 <RowDefinition Height="25*"/>
             </Grid.RowDefinitions>
-            <Button Command="{Binding NewGameClick}" Margin="15" Background="{x:Null}">
+            <Button Style="{StaticResource RoundButton}" Command="{Binding NewGameClick}" Margin="15" Background="{x:Null}">
                 <Image Source="/Views/Images/NewGameButton.png" Stretch="Fill"></Image>
             </Button>
-            <Button Command="{Binding LoadGameClick}" Margin="15" Background="{x:Null}" Grid.Row="1">
+            <Button Style="{StaticResource RoundButton}" Command="{Binding LoadGameClick}" Margin="15" Background="{x:Null}" Grid.Row="1">
                 <Image Source="/Views/Images/LoadGameButton.png" Stretch="Fill"/>
             </Button>
 
         </Grid>
-        <Button Background="{x:Null}" Command="{Binding BackToMainMenuClick}" Grid.Column="1" Grid.Row="1">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Command="{Binding BackToMainMenuClick}" Grid.Column="1" Grid.Row="1">
             <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
         </Button>
-        <Button Background="{x:Null}" Grid.Column="2" Grid.Row="5">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="2" Grid.Row="5">
             <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
         </Button>
-        <Button Background="{x:Null}" Grid.Column="4" Grid.Row="5">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="4" Grid.Row="5">
             <Image Source="/Views/Images/ArrowRight.png" Stretch="Fill"/>
         </Button>
         <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3" Margin="15">
