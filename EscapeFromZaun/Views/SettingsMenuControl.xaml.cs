@@ -24,5 +24,10 @@ namespace EscapeFromZaun.Views
         {
             InitializeComponent();
         }
+
+        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            this.InvalidateVisual();
+        }
     }
 }
