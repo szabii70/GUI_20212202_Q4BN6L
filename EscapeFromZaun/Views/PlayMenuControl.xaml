@@ -7,6 +7,83 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="140*"/>
+            <RowDefinition Height="85*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*"/>
+
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="230*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="440*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <MediaElement Name="myMediaElement"  Grid.RowSpan="8" Grid.ColumnSpan="7" Stretch="Fill">
+            <MediaElement.Triggers>
+                <EventTrigger RoutedEvent="MediaElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                <!-- The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
+                     over and over indefinitely.-->
+                                <MediaTimeline Source="Views/Animation/PlayMenu.mp4" 
+                                               Storyboard.TargetName="myMediaElement"  
+                                               RepeatBehavior="Forever"  />
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </MediaElement.Triggers>
+        </MediaElement>
+
+
+        <!--<Image Source="/Views/Images/PlayMenu.png" Stretch="Fill" Grid.RowSpan="8" Grid.ColumnSpan="7"></Image>-->
+        <Grid Margin="0,1,0,0" Grid.Column="3" Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25*"/>
+                <RowDefinition Height="25*"/>
+            </Grid.RowDefinitions>
+            <Button Command="{Binding NewGameClick}" Margin="15" Background="{x:Null}">
+                <Image Source="/Views/Images/NewGameButton.png" Stretch="Fill"></Image>
+            </Button>
+            <Button Command="{Binding LoadGameClick}" Margin="15" Background="{x:Null}" Grid.Row="1">
+                <Image Source="/Views/Images/LoadGameButton.png" Stretch="Fill"/>
+            </Button>
+
+        </Grid>
+        <Button Background="{x:Null}" Command="{Binding BackToMainMenuClick}" Grid.Column="1" Grid.Row="1">
+            <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
+        </Button>
+        <Button Background="{x:Null}" Grid.Column="2" Grid.Row="5">
+            <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
+        </Button>
+        <Button Background="{x:Null}" Grid.Column="4" Grid.Row="5">
+            <Image Source="/Views/Images/ArrowRight.png" Stretch="Fill"/>
+        </Button>
+        <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3" Margin="15">
+            <Image Source="/Views/Images/LoadGameButton.png" Stretch="Fill"/>
+            <ListBox Background="{x:Null}">
+
+                <StackPanel Orientation="Horizontal" Background="Gray" Margin="9" >
+                    <Label Content="Jinx"  Width="130" HorizontalContentAlignment="Left"/>
+                    <Label Content="Jinx"  Width="130" HorizontalContentAlignment="Center"/>
+                    <Label Content="Jinx"  Width="130" HorizontalContentAlignment="Right"/>
+                </StackPanel>
+            </ListBox>
+        </Grid>
+
     </Grid>
 </UserControl>
