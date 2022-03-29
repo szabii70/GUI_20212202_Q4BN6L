@@ -7,6 +7,50 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="49*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="401*"/>
+            <ColumnDefinition Width="362*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
+        <!--<MediaElement Name="myMediaElement" >
+            <MediaElement.Triggers>
+                <EventTrigger RoutedEvent="MediaElement.Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+
+                                -->
+        <!-- The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
+                     over and over indefinitely.-->
+        <!--
+                                <MediaTimeline Source="/Views/Animation/SettingsMenu.mp4" Storyboard.TargetName="myMediaElement"  
+                 RepeatBehavior="Forever" />
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </MediaElement.Triggers>
+        </MediaElement>-->
+        <Image Source="/Views/Images/wallpaperbetter.com_1920x1080 (8).jpg" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="214*"/>
+                <ColumnDefinition Width="185*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Sound Effects" Foreground="#e5c179" FontWeight="Bold" FontSize="18" FontFamily="Bookman Old Style"/>
+        </Grid>
     </Grid>
 </UserControl>

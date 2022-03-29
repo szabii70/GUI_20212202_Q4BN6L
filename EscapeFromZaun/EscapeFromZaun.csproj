@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Animation\SettingsMenu.mp4" />
     <None Remove="Views\Images\MainMenu.jpg" />
     <None Remove="Views\Images\MainMenu0.jpg" />
     <None Remove="Views\Images\MainMenu2.jpg" />
@@ -20,6 +21,12 @@
     <None Remove="Views\Images\wallpaperbetter.com_1920x1080 %282%29.jpg" />
     <None Remove="Views\Images\wallpaperbetter.com_1920x1080 %284%29.jpg" />
     <None Remove="Views\Images\wallpaperbetter.com_1920x1080 (3).jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\Animation\SettingsMenu.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
