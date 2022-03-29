@@ -24,7 +24,7 @@ namespace EscapeFromZaun
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new PlayMenuWindowViewModel();
+            this.DataContext = new MainMenuWindowViewModel();
         }
     }
 }
