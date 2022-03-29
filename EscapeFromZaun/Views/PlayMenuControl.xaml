@@ -74,8 +74,14 @@
             <Image Source="/Views/Images/ArrowRight.png" Stretch="Fill"/>
         </Button>
         <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3" Margin="15">
-            <ListBox>
-                <Label Content="Jinx 10/?"/>
+            <Image Source="/Views/Images/LoadGameButton.png" Stretch="Fill"/>
+            <ListBox Background="{x:Null}">
+
+                <StackPanel Orientation="Horizontal" Background="Gray" Margin="9" >
+                    <Label Content="Jinx"  Width="130" HorizontalContentAlignment="Left"/>
+                    <Label Content="Jinx"  Width="130" HorizontalContentAlignment="Center"/>
+                    <Label Content="Jinx"  Width="130" HorizontalContentAlignment="Right"/>
+                </StackPanel>
             </ListBox>
         </Grid>
 
