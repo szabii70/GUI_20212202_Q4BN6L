@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Views\Animation\SettingsMenu.mp4" />
+    <None Remove="Views\Audio\Songs\Imagine Dragons &amp; JID - Enemy %28from the series Arcane League of Legends%29 _ Official Music Video %28online-audio-converter.com%29.wav" />
     <None Remove="Views\Images\Arrow.png" />
     <None Remove="Views\Images\MainMenu.jpg" />
     <None Remove="Views\Images\MainMenu0.jpg" />
@@ -19,6 +20,7 @@
     <None Remove="Views\Images\PlayButton.png" />
     <None Remove="Views\Images\QuitButton.png" />
     <None Remove="Views\Images\SettingsButton.png" />
+    <None Remove="Views\Images\SoundOn.png" />
     <None Remove="Views\Images\wallpaperbetter.com_1920x1080 %282%29.jpg" />
     <None Remove="Views\Images\wallpaperbetter.com_1920x1080 %284%29.jpg" />
     <None Remove="Views\Images\wallpaperbetter.com_1920x1080 (3).jpg" />
@@ -40,6 +42,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Views\Audio\Songs\Imagine Dragons &amp; JID - Enemy (from the series Arcane League of Legends) _ Official Music Video (online-audio-converter.com).wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Views\Images\Arrow.png" />
     <Resource Include="Views\Images\MainMenu0.jpg" />
     <Resource Include="Views\Images\MainMenu2.jpg" />
@@ -49,6 +54,11 @@
     <Resource Include="Views\Images\PlayButton.png" />
     <Resource Include="Views\Images\QuitButton.png" />
     <Resource Include="Views\Images\SettingsButton.png" />
+    <Resource Include="Views\Images\SoundOn.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Audio\Sfx\" />
   </ItemGroup>
 
 </Project>

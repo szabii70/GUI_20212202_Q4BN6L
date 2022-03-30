@@ -21,9 +21,9 @@
             <ColumnDefinition Width="362*"/>
             <ColumnDefinition Width="37*"/>
         </Grid.ColumnDefinitions>
-        
-        
-        
+
+
+
         <MediaElement Name="myMediaElement" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="5" Grid.Row="0" Stretch="Fill">
             <MediaElement.Triggers>
                 <EventTrigger RoutedEvent="MediaElement.Loaded">
@@ -31,10 +31,10 @@
                         <BeginStoryboard>
                             <Storyboard>
 
-                                
-         <!--The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
+
+                                <!--The MediaTimeline has a RepeatBehavior="Forever" which makes the media play
                      over and over indefinitely.-->
-        
+
                                 <MediaTimeline
                                     Source="Views/Animation/SettingsMenu.mp4"
                                     Storyboard.TargetName="myMediaElement"  
@@ -49,8 +49,9 @@
         <!--<Image Source="/Views/Images/wallpaperbetter.com_1920x1080 (8).jpg" Grid.ColumnSpan="5" Grid.RowSpan="5" Stretch="Fill"/>-->
         <Grid Grid.Column="3" Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="47*"/>
-                <ColumnDefinition Width="24*"/>
+                <ColumnDefinition Width="224*"/>
+                <ColumnDefinition Width="115*"/>
+                <ColumnDefinition Width="17*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"/>
@@ -73,7 +74,7 @@
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
-            <Label Content="Move Animation" FontWeight="Bold" FontSize="45" FontFamily="Bookman Old Style" Grid.Row="2" Grid.Column="0">
+            <Label Content="Move Animation" FontWeight="Bold" FontSize="45" FontFamily="Bookman Old Style" Grid.Row="2">
                 <Label.Foreground>
                     <LinearGradientBrush>
                         <GradientStop Color="#ca9c4b"/>
@@ -81,9 +82,22 @@
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
+            <Slider Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
+            <Slider Grid.Column="1" Grid.Row="1" VerticalAlignment="Center"/>
+            <CheckBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Background="{x:Null}" FontSize="30">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="4" ScaleY="4"/>
+                </CheckBox.LayoutTransform>
+            </CheckBox>
+            <Button Grid.Column="2" Grid.Row="0" Background="{x:Null}" BorderThickness="0">
+                <Image Source="/Views/Images/SoundOn.png"/>
+            </Button>
+            <Button Grid.Column="2" Grid.Row="1" Background="{x:Null}" BorderThickness="0">
+                <Image Source="/Views/Images/SoundOn.png"/>
+            </Button>
         </Grid>
         <Button Background="{x:Null}" Grid.Row="1" Grid.Column="1" Command="{Binding BackToMenuCommand}">
-            <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
+            <Image Source="/Views/Images/Arrow.png"/>
         </Button>
     </Grid>
 </UserControl>
