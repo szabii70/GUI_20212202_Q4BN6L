@@ -24,7 +24,7 @@ namespace EscapeFromZaun.ViewModels
         public MainMenuWindowViewModel(IRndBackgroundLogic logic)
         {
             _backgroundLogic = logic;
-            BackgroundImage = $"/Views/Images/{logic.GetRandomImage()}";
+            BackgroundImage = $"/Views/Images/MainMenuBackground/{logic.GetRandomImage()}";
             ;
             PlayCommand = new RelayCommand(() => this.PlayButtonClick());
             SettingsCommand = new RelayCommand(() => this.SettingsButtonClick());

@@ -11,7 +11,7 @@ namespace EscapeFromZaun.Logic
 
         public string GetRandomImage()
         {
-            backgoundImages = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images", "*.jpg");
+            backgoundImages = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/MainMenuBackground", "*.jpg");
 
             rndNumber = random.Next(0, backgoundImages.Length);
             var images = backgoundImages[rndNumber].Split('\\');
