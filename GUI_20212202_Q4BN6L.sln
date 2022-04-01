@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EscapeFromZaun", "EscapeFromZaun\EscapeFromZaun.csproj", "{8EA1F679-A755-4734-9175-F330BAB3B3F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapeFromZaun.Logic", "EscapeFromZaun.Logic\EscapeFromZaun.Logic.csproj", "{6B738420-C61E-4661-8ADA-76690727F593}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EscapeFromZaun.Logic", "EscapeFromZaun.Logic\EscapeFromZaun.Logic.csproj", "{6B738420-C61E-4661-8ADA-76690727F593}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapeFromZaun.Model", "EscapeFromZaun.Model\EscapeFromZaun.Model.csproj", "{A7EFC56A-4388-40DE-992E-71D1DD548D00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6B738420-C61E-4661-8ADA-76690727F593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B738420-C61E-4661-8ADA-76690727F593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B738420-C61E-4661-8ADA-76690727F593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7EFC56A-4388-40DE-992E-71D1DD548D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7EFC56A-4388-40DE-992E-71D1DD548D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7EFC56A-4388-40DE-992E-71D1DD548D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7EFC56A-4388-40DE-992E-71D1DD548D00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
