@@ -21,6 +21,8 @@ namespace EscapeFromZaun
             Ioc.Default.ConfigureServices(
                 new ServiceCollection()
                 .AddSingleton<IRndBackgroundLogic, RndBackgroundLogic>()
+                .AddSingleton<IGameLogic, GameLogic>()
+                .AddSingleton<IScoreSerializationLogic, ScoreSerializationLogic>()
                 .BuildServiceProvider());
         }
     }
