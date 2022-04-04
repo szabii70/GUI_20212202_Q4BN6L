@@ -10,5 +10,6 @@ namespace EscapeFromZaun.Logic
     public class GameLogic : IGameLogic
     {
         public PlayerModel Player { get; set; }
+
     }
 }
