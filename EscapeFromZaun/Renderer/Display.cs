@@ -1,4 +1,4 @@
-﻿using EscapeFromZaun.Logic;
+﻿using EscapeFromZaun.WpfLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
