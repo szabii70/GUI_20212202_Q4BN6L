@@ -9,8 +9,10 @@
 
   <ItemGroup>
     <None Remove="Views\Animation\PlayMenu.mp4" />
+    <None Remove="Views\Game.json" />
     <None Remove="Views\Images\Arrow.png" />
     <None Remove="Views\Images\ArrowRight.png" />
+    <None Remove="Views\Images\ListBoxBackground.png" />
     <None Remove="Views\Images\LoadGameButton.png" />
     <None Remove="Views\Images\NewGameButton.png" />
     <None Remove="Views\Images\PlayMenu.png" />
@@ -18,6 +20,9 @@
 
   <ItemGroup>
     <Content Include="Views\Animation\PlayMenu.mp4">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Game.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -33,6 +38,7 @@
     <Content Include="Views\Images\ArrowRight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Views\Images\ListBoxBackground.png" />
     <Resource Include="Views\Images\LoadGameButton.png" />
     <Resource Include="Views\Images\NewGameButton.png" />
     <Resource Include="Views\Images\PlayMenu.png" />

@@ -41,10 +41,10 @@ namespace EscapeFromZaun.ViewModels
             this.logic = logic;
             Players = new ObservableCollection<PlayerModel>();
 
-            logic.DeSerialize("C:/Users/User/Desktop/Game.json");
+            logic.DeSerialize("Views/Game.json");
 
             logic.SetupColllections(Players);
-
+            ;
             this.NewGameClick = new RelayCommand(() => this.NewGameClick_Button());
             this.LoadGameClick = new RelayCommand(() => this.LoadGameClick_Button());
             this.BackToMainMenuClick = new RelayCommand(() => this.BackToMainMenuClick_Button());
