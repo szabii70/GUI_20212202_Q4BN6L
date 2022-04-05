@@ -86,6 +86,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="GameItems\" />
     <Folder Include="Views\Audio\Sfx\" />
   </ItemGroup>
 
