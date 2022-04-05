@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using EscapeFromZaun.Logic;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,13 @@ namespace EscapeFromZaun.ViewModels
 {
     public class PlayMenuWindowViewModel
     {
-        public PlayMenuWindowViewModel()
+
+        IScoreSerializationLogic logic;
+        public PlayMenuWindowViewModel(IScoreSerializationLogic logic)
         {
+            this.logic = logic;
+
+
             this.NewGameClick = new RelayCommand(() => this.NewGameClick_Button());
             this.LoadGameClick = new RelayCommand(() => this.LoadGameClick_Button());
             this.BackToMainMenuClick = new RelayCommand(() => this.BackToMainMenuClick_Button());
