@@ -67,6 +67,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EscapeFromZaun.Model\EscapeFromZaun.Model.csproj" />
+    <ProjectReference Include="..\EscapeFromZaun.WpfLogic\EscapeFromZaun.WpfLogic.csproj" />
   </ItemGroup>
 
   <ItemGroup>

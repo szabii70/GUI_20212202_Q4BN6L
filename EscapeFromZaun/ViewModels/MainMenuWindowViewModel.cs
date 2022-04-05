@@ -1,4 +1,4 @@
-﻿using EscapeFromZaun.Logic;
+﻿using EscapeFromZaun.WpfLogic;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
