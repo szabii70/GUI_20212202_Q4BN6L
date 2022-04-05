@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EscapeFromZaun", "EscapeFromZaun\EscapeFromZaun.csproj", "{8EA1F679-A755-4734-9175-F330BAB3B3F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EscapeFromZaun.Logic", "EscapeFromZaun.Logic\EscapeFromZaun.Logic.csproj", "{6B738420-C61E-4661-8ADA-76690727F593}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EscapeFromZaun.Model", "EscapeFromZaun.Model\EscapeFromZaun.Model.csproj", "{A7EFC56A-4388-40DE-992E-71D1DD548D00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapeFromZaun.Model", "EscapeFromZaun.Model\EscapeFromZaun.Model.csproj", "{A7EFC56A-4388-40DE-992E-71D1DD548D00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EscapeFromZaun.Repository", "EscapeFromZaun.Repository\EscapeFromZaun.Repository.csproj", "{A4CA0879-845B-4C66-AB14-984A97D883C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapeFromZaun.Repository", "EscapeFromZaun.Repository\EscapeFromZaun.Repository.csproj", "{A4CA0879-845B-4C66-AB14-984A97D883C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscapeFromZaun.WpfLogic", "EscapeFromZaun.WpfLogic\EscapeFromZaun.WpfLogic.csproj", "{78051EA4-003A-443B-B1AC-E460AD99695B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{8EA1F679-A755-4734-9175-F330BAB3B3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EA1F679-A755-4734-9175-F330BAB3B3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EA1F679-A755-4734-9175-F330BAB3B3F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B738420-C61E-4661-8ADA-76690727F593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B738420-C61E-4661-8ADA-76690727F593}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B738420-C61E-4661-8ADA-76690727F593}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B738420-C61E-4661-8ADA-76690727F593}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A7EFC56A-4388-40DE-992E-71D1DD548D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A7EFC56A-4388-40DE-992E-71D1DD548D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7EFC56A-4388-40DE-992E-71D1DD548D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{A4CA0879-845B-4C66-AB14-984A97D883C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4CA0879-845B-4C66-AB14-984A97D883C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4CA0879-845B-4C66-AB14-984A97D883C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78051EA4-003A-443B-B1AC-E460AD99695B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78051EA4-003A-443B-B1AC-E460AD99695B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78051EA4-003A-443B-B1AC-E460AD99695B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78051EA4-003A-443B-B1AC-E460AD99695B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

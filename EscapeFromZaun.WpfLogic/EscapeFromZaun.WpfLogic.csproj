@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EscapeFromZaun.Model\EscapeFromZaun.Model.csproj" />
+    <ProjectReference Include="..\EscapeFromZaun.Repository\EscapeFromZaun.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
