@@ -1,4 +1,5 @@
 ﻿using EscapeFromZaun.Logic;
+using EscapeFromZaun.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using System;
@@ -23,6 +24,7 @@ namespace EscapeFromZaun
                 .AddSingleton<IRndBackgroundLogic, RndBackgroundLogic>()
                 .AddSingleton<IGameLogic, GameLogic>()
                 .AddSingleton<IScoreSerializationLogic, ScoreSerializationLogic>()
+                .AddSingleton<IScoreSerializationRepository,ScoreSerializationRepository>()
                 .BuildServiceProvider());
         }
     }

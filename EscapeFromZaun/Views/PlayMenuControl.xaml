@@ -14,13 +14,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="18*"/>
             <RowDefinition Height="30*"/>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="140*"/>
-            <RowDefinition Height="85*"/>
             <RowDefinition Height="20*"/>
-            <RowDefinition Height="80*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="100*"/>
 
-            <RowDefinition Height="35*"/>
+            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*"/>
@@ -77,9 +77,23 @@
         <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="4" Grid.Row="5">
             <Image Source="/Views/Images/ArrowRight.png" Stretch="Fill"/>
         </Button>
-        <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3" Margin="15">
-            <Image Source="/Views/Images/ListBoxBackground.png" Stretch="Fill"/>
-            <ListBox Background="{x:Null}" ItemsSource="{Binding Players}">
+        <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3" Margin="15" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="178*"/>
+            </Grid.RowDefinitions>
+            <Image Source="/Views/Images/ListBoxBackground.png" Stretch="Fill" Grid.RowSpan="3"/>
+            <Label Grid.Row="0" Content="HighScore" HorizontalContentAlignment="Center" FontFamily="Bookman Old Style" FontSize="45" VerticalContentAlignment="Center" Foreground="#e5c170" FontWeight="Medium" />
+            <Border BorderBrush="#e5c179" Grid.Row="1" BorderThickness="2.5">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                    <Label Content="Name" HorizontalContentAlignment="Left" Width="122" FontSize="24" FontFamily="Bookman Old Style" Foreground="#e5c179" VerticalContentAlignment="Center"/>
+                    <Label Content="Time" HorizontalContentAlignment="Center" Width="122" FontSize="24" FontFamily="Bookman Old Style" Foreground="#e5c179" VerticalContentAlignment="Center"/>
+                    <Label Content="Output" HorizontalContentAlignment="Right" Width="122" FontSize="24" FontFamily="Bookman Old Style" Foreground="#e5c179" VerticalContentAlignment="Center"/>
+                </StackPanel>
+            </Border>
+
+            <ListBox Background="{x:Null}" ItemsSource="{Binding Players}" Grid.Row="2" HorizontalAlignment="Center" BorderThickness="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" >

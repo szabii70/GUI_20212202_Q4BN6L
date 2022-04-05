@@ -12,28 +12,23 @@ namespace EscapeFromZaun.Logic
 {
     public class ScoreSerializationLogic : IScoreSerializationLogic
     {
-        //IScoreSerializationRepository scoreRepositry;
-        //public ScoreSerializationLogic(IScoreSerializationRepository scoreRepositry)
-        //{
-        //    this.scoreRepositry = scoreRepositry;
-        //}
+        IScoreSerializationRepository scoreRepositry;
+        public ScoreSerializationLogic(IScoreSerializationRepository scoreRepositry)
+        {
+            this.scoreRepositry = scoreRepositry;
+        }
 
 
         IList<PlayerModel> players;
 
         public void SetupColllections(IList<PlayerModel> list)
         {
-            foreach (var item in players)
-            {
-                list.Add(item);
-            }
+            scoreRepositry.SetupColllections(list);
         }
 
         public void DeSerialize(string Filename)
         {
-            var input = File.ReadAllText(Filename);
-            players = JsonConvert.DeserializeObject<IList<PlayerModel>>(input);
-            ;
+            scoreRepositry.DeSerialize(Filename);
         }
 
     }
