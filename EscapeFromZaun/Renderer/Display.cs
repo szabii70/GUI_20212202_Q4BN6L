@@ -13,6 +13,7 @@ namespace EscapeFromZaun.Renderer
     {
         Size windowSize;
         IGameLogic logic;
+        PlayerLogic player;
         public void SetupSizes(Size size)
         {
             this.windowSize = size;
@@ -27,7 +28,13 @@ namespace EscapeFromZaun.Renderer
 
             if(logic!=null)
             {
-                drawingContext.DrawEllipse(Brushes.Red, null, new Point(300, 300), 20, 20);
+                player = logic.MainPlayer;
+                drawingContext.DrawGeometry(Brushes.Red, null, player.Hitbox);
+
+                foreach (var item in logic.Platforms)
+                {
+                    drawingContext.DrawGeometry(item.ItemBrush, null, item.Area);
+                }
             }
         }
     }

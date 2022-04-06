@@ -36,27 +36,31 @@ namespace EscapeFromZaun.Views
 
         private void MainTimer_Tick(object? sender, EventArgs e)
         {
-            //logic.TimeStep();
+            logic.TimeStep();
             display.InvalidateVisual();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            var window = Window.GetWindow(this);
+            window.KeyDown += UserControl_KeyDown;
+            window.KeyUp += UserControl_KeyUp;
+
             display.SetupLogic(logic);
-            //logic.SetupSizes(new Size(grid.ActualWidth,grid.ActualHeight));
+            logic.SetupSizes(new Size(grid.ActualWidth,grid.ActualHeight));
             display.SetupSizes(new Size(grid.ActualWidth, grid.ActualHeight));
             display.InvalidateVisual();
         }
 
         private void UserControl_KeyDown(object sender, KeyEventArgs e)
         {
-            //logika mozgás
+            logic.Move(e.Key);
             display.InvalidateVisual();
         }
 
         private void UserControl_KeyUp(object sender, KeyEventArgs e)
         {
-            //logika nem mozgás
+            logic.NotMove(e.Key);
             display.InvalidateVisual();
         }
     }
