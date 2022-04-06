@@ -1,0 +1,13 @@
+﻿<Window x:Class="EscapeFromZaun.Views.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EscapeFromZaun.Views"
+        xmlns:renderer="clr-namespace:EscapeFromZaun.Renderer"
+        mc:Ignorable="d"
+        Title="GameWindow" Height="450" Width="800" Loaded="Window_Loaded" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" WindowState="Maximized">
+    <Grid x:Name="grid">
+        <renderer:Display x:Name="display"/>
+    </Grid>
+</Window>
