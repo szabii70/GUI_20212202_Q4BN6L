@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,6 +17,7 @@ namespace EscapeFromZaun.ViewModels
     public class MainMenuWindowViewModel : ObservableRecipient
     {
         IRndBackgroundLogic _backgroundLogic;
+
         public ICommand PlayCommand { get; set; }
         public ICommand SettingsCommand { get; set; }
         public ICommand QuitCommand { get; set; }
@@ -29,8 +31,8 @@ namespace EscapeFromZaun.ViewModels
             PlayCommand = new RelayCommand(() => this.PlayButtonClick());
             SettingsCommand = new RelayCommand(() => this.SettingsButtonClick());
             QuitCommand = new RelayCommand(() => this.QuitButtonClick());
-
         }
+
         public MainMenuWindowViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<IRndBackgroundLogic>())
         {
 

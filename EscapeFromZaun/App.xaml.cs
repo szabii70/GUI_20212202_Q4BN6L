@@ -2,6 +2,7 @@
 using EscapeFromZaun.WpfLogic;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -25,6 +26,7 @@ namespace EscapeFromZaun
                 .AddSingleton<IGameLogic, GameLogic>()
                 .AddSingleton<IScoreSerializationLogic, ScoreSerializationLogic>()
                 .AddSingleton<IScoreSerializationRepository, ScoreSerializationRepository>()
+                .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
                 .BuildServiceProvider());
         }
     }
