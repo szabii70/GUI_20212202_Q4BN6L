@@ -19,6 +19,7 @@ namespace EscapeFromZaun.WpfLogic
         public PlayerLogic MainPlayer { get; set; }
         public List<Platform> Platforms { get; set; }
 
+
         public void SetupSizes(Size size)
         {
             this.windowSize = size;
