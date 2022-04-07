@@ -19,8 +19,11 @@ namespace EscapeFromZaun.ViewModels
     {
 
         IScoreSerializationLogic logic;
-
+        int skipped;
+        int addded;
+        int updated;
         public ObservableCollection<PlayerModel> Players { get; set; }
+        public ObservableCollection<PlayerModel> JustFive { get; set; }
 
 
         public static bool IsInDesignMode
@@ -39,23 +42,38 @@ namespace EscapeFromZaun.ViewModels
 
         public PlayMenuWindowViewModel(IScoreSerializationLogic logic)
         {
+            skipped = 5;
+            addded = 0;
+            updated = 0;
             this.logic = logic;
             Players = new ObservableCollection<PlayerModel>();
+            JustFive = new ObservableCollection<PlayerModel>();
 
             logic.DeSerialize("Views/Game.json");
 
             logic.SetupCollections(Players);
-            ;
+
+            int takefirst = logic.FirstTake();
+
+            logic.FirstPageList(JustFive, takefirst);
+
+            int takesecond = logic.SecondTake();
 
 
+            NextCommand = new RelayCommand(
+                () => logic.NextCommand(Players, JustFive, ref skipped, takesecond, ref addded),
+                () => (addded + takefirst) != (takefirst + takesecond));
 
-
+            PreviousCommand = new RelayCommand(() => logic.PreviousCommand(Players, JustFive, takefirst, ref updated));
 
 
             this.NewGameClick = new RelayCommand(() => this.NewGameClick_Button());
             this.LoadGameClick = new RelayCommand(() => this.LoadGameClick_Button());
             this.BackToMainMenuClick = new RelayCommand(() => this.BackToMainMenuClick_Button());
         }
+        public ICommand NextCommand { get; set; }
+
+        public ICommand PreviousCommand { get; set; }
 
         public ICommand NewGameClick { get; set; }
         public ICommand LoadGameClick { get; set; }
