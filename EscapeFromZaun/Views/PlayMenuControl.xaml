@@ -71,10 +71,10 @@
         <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Command="{Binding BackToMainMenuClick}" Grid.Column="1" Grid.Row="1">
             <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
         </Button>
-        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="2" Grid.Row="5">
+        <Button Style="{StaticResource RoundButton}" Command="{Binding PreviousCommand}" Background="{x:Null}" Grid.Column="2" Grid.Row="5">
             <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
         </Button>
-        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="4" Grid.Row="5">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Command="{Binding NextCommand}" Grid.Column="4" Grid.Row="5">
             <Image Source="/Views/Images/ArrowRight.png" Stretch="Fill"/>
         </Button>
         <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3" Margin="15" >
@@ -93,7 +93,7 @@
                 </StackPanel>
             </Border>
 
-            <ListBox Background="{x:Null}" ItemsSource="{Binding Players}" Grid.Row="2" HorizontalAlignment="Center" BorderThickness="0">
+            <ListBox Background="{x:Null}" ItemsSource="{Binding JustFive}" Grid.Row="2" HorizontalAlignment="Center" BorderThickness="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" >
