@@ -1,4 +1,6 @@
-﻿using EscapeFromZaun.Views;
+﻿using EscapeFromZaun.Model;
+using EscapeFromZaun.Views;
+using EscapeFromZaun.WpfLogic;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using System;
@@ -42,8 +44,14 @@ namespace EscapeFromZaun.ViewModels
 
             logic.DeSerialize("Views/Game.json");
 
-            logic.SetupColllections(Players);
+            logic.SetupCollections(Players);
             ;
+
+
+
+
+
+
             this.NewGameClick = new RelayCommand(() => this.NewGameClick_Button());
             this.LoadGameClick = new RelayCommand(() => this.LoadGameClick_Button());
             this.BackToMainMenuClick = new RelayCommand(() => this.BackToMainMenuClick_Button());
