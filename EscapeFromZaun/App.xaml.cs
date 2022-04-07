@@ -23,6 +23,7 @@ namespace EscapeFromZaun
                 .AddSingleton<IRndBackgroundLogic, RndBackgroundLogic>()
                 .AddSingleton<IGameLogic, GameLogic>()
                 .AddSingleton<IScoreSerializationLogic, ScoreSerializationLogic>()
+                .AddSingleton<IScoreSerializationRepository,ScoreSerializationRepository>()
                 .BuildServiceProvider());
         }
     }
