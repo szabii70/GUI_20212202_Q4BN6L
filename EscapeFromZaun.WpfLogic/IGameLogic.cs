@@ -1,4 +1,5 @@
 ﻿using EscapeFromZaun.Model;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows;
@@ -8,6 +9,7 @@ namespace EscapeFromZaun.WpfLogic
 {
     public interface IGameLogic
     {
+        public event EventHandler GameFinished;
         PlayerModel Player { get; set; }
         public PlayerLogic MainPlayer { get; set; }
         public List<Platform> Platforms { get; set; }

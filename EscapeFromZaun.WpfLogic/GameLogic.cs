@@ -18,6 +18,8 @@ namespace EscapeFromZaun.WpfLogic
         int force = 20;
         int jumpSpeed = 10;
         System.Windows.Size windowSize;
+
+        public event EventHandler GameFinished;
         public PlayerModel Player { get; set; }
         public enum Directions { left,right }
         public PlayerLogic MainPlayer { get; set; }
@@ -85,7 +87,7 @@ namespace EscapeFromZaun.WpfLogic
                     }
                     else if(lines[i][j]=='F')
                     {
-                        //not defined yet
+                        Platforms.Add(new FinishPlatform(j * 384, roofCord + i * 100 + 1000, 100, 100));
                     }
                     else if(lines[i][j]=='E')
                     {
@@ -187,22 +189,25 @@ namespace EscapeFromZaun.WpfLogic
                 if (MainPlayer.IsCollision(item.Area) && MainPlayer.Hitbox.Bounds.BottomLeft.Y >= item.Area.Bounds.BottomLeft.Y) //feje ütközik a plafonnal
                 {
                     jumping = false;
+                    if (item is FinishPlatform) GameFinished(this,null);
                 }
                 if (MainPlayer.IsCollision(item.Area) && item.Area.Bounds.Left >= MainPlayer.Hitbox.Bounds.Left && MainPlayer.Hitbox.Bounds.Bottom > item.Area.Bounds.Bottom) //bal oldalról ütközik miközben jobbra megy
                 {
                     MainPlayer.Move(Directions.left);
+                    if (item is FinishPlatform) GameFinished(this, null);
                 }
                 else if (MainPlayer.IsCollision(item.Area) && item.Area.Bounds.Right <= MainPlayer.Hitbox.Bounds.Right && MainPlayer.Hitbox.Bounds.Bottom > item.Area.Bounds.Bottom)
                 {
                     MainPlayer.Move(Directions.right);
+                    if (item is FinishPlatform) GameFinished(this, null);
                 }
                 if (MainPlayer.IsCollision(item.Area) && jumping == false && MainPlayer.Hitbox.Bounds.BottomLeft.Y <= item.Area.Bounds.BottomLeft.Y) //talajjal való ütközés
                 {
                     force = 20;
-
                     onFloor = true;
                     dif = (int)(MainPlayer.Hitbox.Bounds.Bottom + item.Area.Bounds.Height - item.Area.Bounds.Bottom);
                     jumpSpeed = 0;
+                    if (item is FinishPlatform) GameFinished(this, null);
                 }
             }
             if (onFloor)

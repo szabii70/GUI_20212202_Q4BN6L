@@ -23,6 +23,7 @@ namespace EscapeFromZaun.Views
     {
         IGameLogic logic;
         DispatcherTimer mainTimer;
+        public event EventHandler GameFinished;
         public GameWindow(IGameLogic logic)
         {
             InitializeComponent();
@@ -31,6 +32,14 @@ namespace EscapeFromZaun.Views
             mainTimer.Interval = TimeSpan.FromMilliseconds(5);
             mainTimer.Tick += MainTimer_Tick;
             mainTimer.Start();
+
+            logic.GameFinished += Logic_GameFinished;
+        }
+
+        private void Logic_GameFinished(object? sender, EventArgs e)
+        {
+            GameFinished(this,null);
+            this.Close();
         }
 
         private void MainTimer_Tick(object? sender, EventArgs e)

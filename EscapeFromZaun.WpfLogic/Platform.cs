@@ -16,6 +16,7 @@ namespace EscapeFromZaun.WpfLogic
         int width;
         int height;
 
+
         public Platform(int drawFromX, int drawFromY, int width, int height)
         {
             this.DrawFromX = drawFromX;
