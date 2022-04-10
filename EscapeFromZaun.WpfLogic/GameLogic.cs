@@ -22,11 +22,12 @@ namespace EscapeFromZaun.WpfLogic
         public enum Directions { left,right }
         public PlayerLogic MainPlayer { get; set; }
         public List<Platform> Platforms { get; set; }
+        public BackgroundDatas BackgroundDatas { get; set; }
         public Rect BackgroundRect
         {
             get
             {
-                return new Rect(0,roofCord,windowSize.Width,10000);
+                return new Rect(BackgroundDatas.DrawFromX, BackgroundDatas.DrawFromY, windowSize.Width, 10000);
             }
         }
 
@@ -45,8 +46,8 @@ namespace EscapeFromZaun.WpfLogic
             //Platforms.Add(new Platform(500, 100, 300, 50));
             //Platforms.Add(new Platform(100, -100, 300, 50));
             //Platforms.Add(new Platform(700, -300, 300, 50));
-
             SetupMap();
+            BackgroundDatas = new BackgroundDatas(windowSize.Width, 10000) { DrawFromX=0, DrawFromY=roofCord-300}; //Késõbb lehet a kép tetejét bõvítjük, ahelyett, hogymagasabbról kezdõdjön a kirajzolás
         }
         public GameLogic(IMapGeneratingRepository mapRepo)
         {
@@ -92,7 +93,6 @@ namespace EscapeFromZaun.WpfLogic
                     }
                 }
             }
-
         }
 
         public void Move(Key key)
@@ -150,12 +150,14 @@ namespace EscapeFromZaun.WpfLogic
             {
                 item.DrawFromY -= jumpSpeed;
             }
+            BackgroundDatas.DrawFromY -= jumpSpeed;
 
             if (jumping == true)
             {
                 jumpSpeed = -10;
-
                 force -= 1;
+
+                BackgroundDatas.DrawFromY += force;
 
                 foreach (var item in Platforms)
                 {
@@ -166,6 +168,8 @@ namespace EscapeFromZaun.WpfLogic
             {
                 jumpSpeed = 10;
                 force += 1;
+
+                BackgroundDatas.DrawFromY -= force;
 
                 foreach (var item in Platforms)
                 {
@@ -203,6 +207,7 @@ namespace EscapeFromZaun.WpfLogic
             }
             if (onFloor)
             {
+                BackgroundDatas.DrawFromY += dif;
                 foreach (var item in Platforms)
                 {
                     item.DrawFromY += dif;

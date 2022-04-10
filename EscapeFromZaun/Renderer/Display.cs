@@ -21,8 +21,7 @@ namespace EscapeFromZaun.Renderer
         {
             get
             {
-                Brush brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Views/Images/GameImages/zaun.jpeg"), UriKind.RelativeOrAbsolute)));
-                ;
+                Brush brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Views/Images/GameImages/zaun2.jpg"), UriKind.RelativeOrAbsolute)));
                 return brush;
             }
         }
