@@ -35,8 +35,8 @@ namespace EscapeFromZaun.WpfLogic
         {
             get
             {
-                return Brushes.Blue;
-                //return new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../Renderer/Images/floor.jpg"), UriKind.RelativeOrAbsolute)));
+                //return Brushes.Blue;
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/Platform.png"), UriKind.RelativeOrAbsolute)));
             }
         }
     }

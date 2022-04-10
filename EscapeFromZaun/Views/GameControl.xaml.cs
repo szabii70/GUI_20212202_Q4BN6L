@@ -27,7 +27,7 @@ namespace EscapeFromZaun.Views
         public GameControl()
         {
             InitializeComponent();
-            logic = new GameLogic();
+            //logic = new GameLogic();
             mainTimer = new DispatcherTimer();
             mainTimer.Interval = TimeSpan.FromMilliseconds(5);
             mainTimer.Tick += MainTimer_Tick;

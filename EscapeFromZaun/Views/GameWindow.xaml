@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EscapeFromZaun.Views"
         xmlns:renderer="clr-namespace:EscapeFromZaun.Renderer"
         mc:Ignorable="d"
-        Title="GameWindow" Height="450" Width="800" Loaded="Window_Loaded" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" WindowState="Maximized">
+        Title="GameWindow" Height="450" Width="800" Loaded="Window_Loaded" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" WindowState="Maximized" Closed="Window_Closed">
     <Grid x:Name="grid">
         <renderer:Display x:Name="display"/>
     </Grid>

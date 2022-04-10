@@ -12,6 +12,7 @@
     <None Remove="Views\Game.json" />
     <None Remove="Views\Images\Arrow.png" />
     <None Remove="Views\Images\ArrowRight.png" />
+    <None Remove="Views\Images\GameImages\zaun.jpeg" />
     <None Remove="Views\Images\ListBoxBackground.png" />
     <None Remove="Views\Images\LoadGameButton.png" />
     <None Remove="Views\Images\NewGameButton.png" />
@@ -36,6 +37,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\ArrowRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\zaun.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Views\Images\ListBoxBackground.png" />

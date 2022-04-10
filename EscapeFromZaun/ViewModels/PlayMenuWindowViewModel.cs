@@ -18,7 +18,7 @@ namespace EscapeFromZaun.ViewModels
 {
     public class PlayMenuWindowViewModel
     {
-
+        IGameLogic gameLogic;
         IScoreSerializationLogic logic;
         int skipped;
         int addded;
@@ -36,7 +36,7 @@ namespace EscapeFromZaun.ViewModels
             }
         }
 
-        public PlayMenuWindowViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<IScoreSerializationLogic>())
+        public PlayMenuWindowViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<IScoreSerializationLogic>(), Ioc.Default.GetService<IGameLogic>())
         {
 
         }
@@ -50,8 +50,9 @@ namespace EscapeFromZaun.ViewModels
         public ICommand LoadGameClick { get; set; }
         public ICommand BackToMainMenuClick { get; set; }
 
-        public PlayMenuWindowViewModel(IScoreSerializationLogic logic)
+        public PlayMenuWindowViewModel(IScoreSerializationLogic logic, IGameLogic gameLogic)
         {
+            this.gameLogic = gameLogic;
             skipped = 5;
             addded = 0;
             updated = 0;
@@ -86,13 +87,13 @@ namespace EscapeFromZaun.ViewModels
         private void NewGameClick_Button()
         {
             //Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).DataContext = new GameWindowViewModel();
-            new GameWindow().ShowDialog();
+            new GameWindow(gameLogic).ShowDialog();
         }
 
         private void LoadGameClick_Button()
         {
             //Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).DataContext = new GameWindowViewModel();
-            new GameWindow().ShowDialog();
+            new GameWindow(gameLogic).ShowDialog();
         }
 
         private void BackToMainMenuClick_Button()

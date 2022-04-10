@@ -1,11 +1,13 @@
 ﻿using EscapeFromZaun.WpfLogic;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace EscapeFromZaun.Renderer
 {
@@ -14,6 +16,16 @@ namespace EscapeFromZaun.Renderer
         Size windowSize;
         IGameLogic logic;
         PlayerLogic player;
+
+        public Brush BackgroundBrush
+        {
+            get
+            {
+                Brush brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Views/Images/GameImages/zaun.jpeg"), UriKind.RelativeOrAbsolute)));
+                ;
+                return brush;
+            }
+        }
         public void SetupSizes(Size size)
         {
             this.windowSize = size;
@@ -29,6 +41,7 @@ namespace EscapeFromZaun.Renderer
             if(logic!=null)
             {
                 player = logic.MainPlayer;
+                drawingContext.DrawRectangle(BackgroundBrush, null,logic.BackgroundRect);
                 drawingContext.DrawGeometry(Brushes.Red, null, player.Hitbox);
 
                 foreach (var item in logic.Platforms)
