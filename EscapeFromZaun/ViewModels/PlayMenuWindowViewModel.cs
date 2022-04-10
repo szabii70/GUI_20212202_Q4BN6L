@@ -109,5 +109,6 @@ namespace EscapeFromZaun.ViewModels
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).DataContext = new ScoreMenuWindowViewModel();
         }
+
     }
 }
