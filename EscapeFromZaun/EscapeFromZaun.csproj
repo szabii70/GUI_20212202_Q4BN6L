@@ -13,9 +13,12 @@
     <None Remove="Views\Images\ArrowRight.png" />
     <None Remove="Views\Images\LoadGameButton.png" />
     <None Remove="Views\Images\NewGameButton.png" />
+    <None Remove="Views\Images\NoButton.png" />
     <None Remove="Views\Images\PlayMenu.png" />
     <None Remove="Views\Images\Scoremenu.png" />
+    <None Remove="Views\Images\SliderButton.png" />
     <None Remove="Views\Images\TextboxBackground.png" />
+    <None Remove="Views\Images\YesButton.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +40,9 @@
     </Content>
     <Resource Include="Views\Images\LoadGameButton.png" />
     <Resource Include="Views\Images\NewGameButton.png" />
+    <Resource Include="Views\Images\NoButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\Images\PlayMenu.png" />
   </ItemGroup>
 
@@ -85,8 +91,14 @@
     <Resource Include="Views\Images\QuitButton.png" />
     <Resource Include="Views\Images\Scoremenu.png" />
     <Resource Include="Views\Images\SettingsButton.png" />
+    <Resource Include="Views\Images\SliderButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\Images\SoundOn.png" />
     <Resource Include="Views\Images\TextboxBackground.png" />
+    <Resource Include="Views\Images\YesButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

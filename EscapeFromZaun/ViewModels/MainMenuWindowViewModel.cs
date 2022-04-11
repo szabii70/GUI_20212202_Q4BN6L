@@ -10,7 +10,9 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace EscapeFromZaun.ViewModels
 {
@@ -52,9 +54,6 @@ namespace EscapeFromZaun.ViewModels
         {
             Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).DataContext = new PlayMenuWindowViewModel();
         }
-
-
-
 
         public static bool IsInDesignMode
         {
