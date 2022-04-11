@@ -107,12 +107,12 @@ namespace EscapeFromZaun.WpfLogic
                 case Key.A:
                     goingLeft = true;
                     goingRight = false;
-                    lookRight = true;
+                    lookRight = false;
                     break;
                 case Key.D:
                     goingRight = true;
                     goingLeft = false;
-                    lookRight = false;
+                    lookRight = true;
                     break;
                 case Key.W:
                     Jump();
@@ -223,7 +223,7 @@ namespace EscapeFromZaun.WpfLogic
                     item.DrawFromY += dif;
                 }
             }
-            PlayerBrush = MainPlayer.PlayerBrush(lookRight, goingRight, goingLeft, jumping);
+            PlayerBrush = MainPlayer.PlayerBrush(lookRight, goingRight, goingLeft, onFloor);
             onFloor = false;
         }
     }

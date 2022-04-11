@@ -12,6 +12,44 @@
     <None Remove="Views\Game.json" />
     <None Remove="Views\Images\Arrow.png" />
     <None Remove="Views\Images\ArrowRight.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0015.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0016.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0017.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0018.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0019.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0020.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0021.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0022.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0023.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0024.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0025.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0026.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0027.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0028.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0029.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0030.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0001.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0002.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0003.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0004.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0005.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0006.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0007.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0008.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0009.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0010.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0011.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0012.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0013.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0014.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0015.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0016.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0017.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0018.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0019.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0020.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0021.png" />
+    <None Remove="Views\Images\GameImages\JinxMove\RunLeft\0022.png" />
     <None Remove="Views\Images\GameImages\zaun2.jpg" />
     <None Remove="Views\Images\ListBoxBackground.png" />
     <None Remove="Views\Images\LoadGameButton.png" />
@@ -24,6 +62,120 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Game.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0015.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0016.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0017.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0018.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0019.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0020.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0021.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0022.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0023.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0024.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0025.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0026.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0027.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0028.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0029.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0030.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0001.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0002.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0003.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0004.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0005.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0006.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0007.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0008.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0009.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0010.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0011.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0012.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0013.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0014.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0015.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0016.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0017.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0018.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0019.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0020.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0021.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Images\GameImages\JinxMove\RunLeft\0022.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\GameImages\zaun2.jpg">

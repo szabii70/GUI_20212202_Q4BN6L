@@ -18,43 +18,58 @@ namespace EscapeFromZaun.WpfLogic
         public int DrawFromY { get; set; }
         List<Brush> runRightBrushes;
         List<Brush> runLeftBrushes;
+        List<Brush> jumpRightBrushes;
+        List<Brush> jumpLeftBrushes;
         Brush standRightBrush;
         Brush standLeftBrush;
-        Brush jumpRightBrush;
-        Brush jumpLeftBrush;
-        int frameNumber;
-        int actualFrameIndex;
+        int frameRunNumber;
+        int frameJumpNumber;
+        int actualRunFrameIndex;
+        int actualJumpFrameIndex;
         public PlayerLogic(int width, int height)
         {
             this.width = width;
             this.height = height;
 
-            runLeftBrushes = new List<Brush>();
-            runRightBrushes = new List<Brush>();
-
-            //LoadImages();
+            LoadImages();
         }
 
         private void LoadImages()
         {
-            string[] runRight = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/RunRight", "*.png");
+            runLeftBrushes = new List<Brush>();
+            runRightBrushes = new List<Brush>();
+            jumpLeftBrushes = new List<Brush>();
+            jumpRightBrushes = new List<Brush>();
+
+            //string[] runRight = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/RunRight", "*.png");
             string[] runLeft = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/RunLeft", "*.png");
 
-            foreach (string run in runRight)
+            //string[] jumpRight = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/JumpRight", "*.png");
+            string[] jumpLeft = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/JumpLeft", "*.png");
+
+            //foreach (string run in runRight)
+            //{
+            //    runRightBrushes.Add(new ImageBrush(new BitmapImage(new Uri(Path.Combine(run), UriKind.RelativeOrAbsolute))));
+            //}
+            foreach (string run in runLeft)
             {
                 runLeftBrushes.Add(new ImageBrush(new BitmapImage(new Uri(Path.Combine(run), UriKind.RelativeOrAbsolute))));
             }
-            foreach (string run in runLeft)
-            {
-                runRightBrushes.Add(new ImageBrush(new BitmapImage(new Uri(Path.Combine(run), UriKind.RelativeOrAbsolute))));
-            }
-            frameNumber = runLeftBrushes.Count();
-            actualFrameIndex = 0;
 
-            standRightBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/StandRight.png"), UriKind.RelativeOrAbsolute)));
-            standLeftBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/StandLeft.png"), UriKind.RelativeOrAbsolute)));
-            jumpRightBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/JumpRight.png"), UriKind.RelativeOrAbsolute)));
-            jumpLeftBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/JumpLeft.png"), UriKind.RelativeOrAbsolute)));
+            foreach (string item in jumpLeft)
+            {
+                jumpLeftBrushes.Add(new ImageBrush(new BitmapImage(new Uri(Path.Combine(item), UriKind.RelativeOrAbsolute))));
+            }
+
+            frameRunNumber = runLeftBrushes.Count();
+            frameJumpNumber = jumpLeftBrushes.Count();
+            actualRunFrameIndex = 0;
+            actualJumpFrameIndex = 0;
+
+            //standRightBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/StandRight.png"), UriKind.RelativeOrAbsolute)));
+            //standLeftBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/StandLeft.png"), UriKind.RelativeOrAbsolute)));
+            //jumpRightBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/JumpRight.png"), UriKind.RelativeOrAbsolute)));
+            //jumpLeftBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/JumpLeft.png"), UriKind.RelativeOrAbsolute)));
         }
 
         //public Brush PlayerBrush
@@ -97,17 +112,19 @@ namespace EscapeFromZaun.WpfLogic
         {
             return Geometry.Combine(this.Hitbox, otherArea, GeometryCombineMode.Intersect, null).GetArea() > 0;
         }
-        public Brush PlayerBrush(bool lookRight, bool goingRight, bool goingLeft, bool jumping)
+        public Brush PlayerBrush(bool lookRight, bool goingRight, bool goingLeft, bool onFloor)
         {
+            ;
             switch (lookRight)
             {
                 case true: //jobbra néz
-                    switch (jumping)
+                    switch (onFloor)
                     {
-                        case true: //jobbra ugrik
+                        case false: //jobbra ugrik
                             //return jumpRightBrush;
                             return Brushes.AliceBlue;
-                        case false:
+                        case true:
+                            actualJumpFrameIndex = 0;
                             switch (goingRight)
                             {
                                 case true:
@@ -120,17 +137,19 @@ namespace EscapeFromZaun.WpfLogic
                     }
 
                 case false: //balra néz
-                    switch (jumping)
+                    switch (onFloor)
                     {
-                        case true: //balra ugrik
-                            //return jumpLeftBrush;
-                            return Brushes.Green;
-                        case false:
+                        case false: //balra ugrik
+                            return JumpBrush();
+                            //return Brushes.Green;
+                        case true:
+                            actualJumpFrameIndex = 0;
                             switch (goingLeft)
                             {
                                 case true:
                                     //balra mozgó képkockák
-                                    return Brushes.Wheat;
+                                    return RunBrush();
+                                    //return Brushes.Wheat;
                                 case false:
                                     //return standLeftBrush; //egy helyben áll
                                     return Brushes.Violet;
@@ -138,14 +157,27 @@ namespace EscapeFromZaun.WpfLogic
                     }
             }
         }
-        public Brush RunBrush()
+        private Brush RunBrush()
         {
-            actualFrameIndex++;
-            if(actualFrameIndex>=frameNumber)
+            actualRunFrameIndex++;
+            if(actualRunFrameIndex>=frameRunNumber)
             {
-                actualFrameIndex = 0;
+                actualRunFrameIndex = 0;
             }
-            return runRightBrushes[actualFrameIndex];
+            return runLeftBrushes[actualRunFrameIndex];
         }
+        private Brush JumpBrush()
+        {
+            if(actualJumpFrameIndex< frameJumpNumber-1)
+            {
+                actualJumpFrameIndex++;
+                return jumpLeftBrushes[actualJumpFrameIndex];
+            }
+            else
+            {
+                return jumpLeftBrushes[actualJumpFrameIndex-1];
+            }
+        }
+        
     }
 }
