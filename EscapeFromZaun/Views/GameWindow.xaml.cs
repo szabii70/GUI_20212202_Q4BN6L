@@ -38,6 +38,7 @@ namespace EscapeFromZaun.Views
 
         private void Logic_GameFinished(object? sender, EventArgs e)
         {
+            ;
             GameFinished(this,null);
             this.Close();
         }

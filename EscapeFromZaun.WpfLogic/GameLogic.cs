@@ -208,11 +208,12 @@ namespace EscapeFromZaun.WpfLogic
                 }
                 if (MainPlayer.IsCollision(item.Area) && jumping == false && MainPlayer.Hitbox.Bounds.BottomLeft.Y <= item.Area.Bounds.BottomLeft.Y) //talajjal való ütközés
                 {
+
+                    if (item is FinishPlatform) GameFinished(this, null);
                     force = 20;
                     onFloor = true;
                     dif = (int)(MainPlayer.Hitbox.Bounds.Bottom + item.Area.Bounds.Height - item.Area.Bounds.Bottom);
                     jumpSpeed = 0;
-                    if (item is FinishPlatform) GameFinished(this, null);
                 }
             }
             if (onFloor)
