@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace EscapeFromZaun.WpfLogic
 {
     public class GameLogic : IGameLogic
     {
         IMapGeneratingRepository mapRepo;
+        bool lookRight;
         int roofCord;
         bool goingLeft = false;
         bool goingRight = false;
@@ -20,6 +22,7 @@ namespace EscapeFromZaun.WpfLogic
         System.Windows.Size windowSize;
 
         public event EventHandler GameFinished;
+        public Brush PlayerBrush { get; set; }
         public PlayerModel Player { get; set; }
         public enum Directions { left,right }
         public PlayerLogic MainPlayer { get; set; }
@@ -104,10 +107,12 @@ namespace EscapeFromZaun.WpfLogic
                 case Key.A:
                     goingLeft = true;
                     goingRight = false;
+                    lookRight = true;
                     break;
                 case Key.D:
                     goingRight = true;
                     goingLeft = false;
+                    lookRight = false;
                     break;
                 case Key.W:
                     Jump();
@@ -218,6 +223,7 @@ namespace EscapeFromZaun.WpfLogic
                     item.DrawFromY += dif;
                 }
             }
+            PlayerBrush = MainPlayer.PlayerBrush(lookRight, goingRight, goingLeft, jumping);
             onFloor = false;
         }
     }

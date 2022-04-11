@@ -41,7 +41,7 @@ namespace EscapeFromZaun.Renderer
             {
                 player = logic.MainPlayer;
                 drawingContext.DrawRectangle(BackgroundBrush, null,logic.BackgroundRect);
-                drawingContext.DrawGeometry(Brushes.Red, null, player.Hitbox);
+                drawingContext.DrawGeometry(logic.PlayerBrush, null, player.Hitbox);
 
                 foreach (var item in logic.Platforms)
                 {
