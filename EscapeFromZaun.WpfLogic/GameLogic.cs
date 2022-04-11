@@ -10,6 +10,12 @@ namespace EscapeFromZaun.WpfLogic
 
         public GameLogic()
         {
+            Player = new PlayerModel()
+            {
+                Name = "",
+                Outcome = "Victory",
+                PlayerRunTime = DateTime.Now
+            };
         }
     }
 }

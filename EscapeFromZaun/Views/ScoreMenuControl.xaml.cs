@@ -24,5 +24,10 @@ namespace EscapeFromZaun.Views
         {
             InitializeComponent();
         }
+
+        private void tb_write_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            tb_write.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+        }
     }
 }

@@ -14,6 +14,8 @@
     <None Remove="Views\Images\LoadGameButton.png" />
     <None Remove="Views\Images\NewGameButton.png" />
     <None Remove="Views\Images\PlayMenu.png" />
+    <None Remove="Views\Images\Scoremenu.png" />
+    <None Remove="Views\Images\TextboxBackground.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -81,8 +83,10 @@
     <Resource Include="Views\Images\MainMenuBackground\MainMenu5.jpg" />
     <Resource Include="Views\Images\PlayButton.png" />
     <Resource Include="Views\Images\QuitButton.png" />
+    <Resource Include="Views\Images\Scoremenu.png" />
     <Resource Include="Views\Images\SettingsButton.png" />
     <Resource Include="Views\Images\SoundOn.png" />
+    <Resource Include="Views\Images\TextboxBackground.png" />
   </ItemGroup>
 
   <ItemGroup>

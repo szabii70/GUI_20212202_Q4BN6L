@@ -9,23 +9,48 @@
              xmlns:vms="clr-namespace:EscapeFromZaun.ViewModels"
              xmlns:controllers="clr-namespace:EscapeFromZaun.Converters">
     <UserControl.DataContext>
-        <vms:SettingsMenuWindowViewModel/>
+        <vms:ScoreMenuWindowViewModel/>
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
-            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="75*"></ColumnDefinition>
+            <ColumnDefinition Width="307*"></ColumnDefinition>
+            <ColumnDefinition Width="418*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="69*"></RowDefinition>
+            <RowDefinition Height="146*"></RowDefinition>
+            <RowDefinition Height="235*"></RowDefinition>
         </Grid.RowDefinitions>
-
+        <Image Source="{Binding BackgroundImage}" Grid.ColumnSpan="3" Grid.RowSpan="3" Stretch="Fill"/>
         <Grid Grid.Row="1" Grid.Column="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
                 <ColumnDefinition Width="1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -35,17 +60,63 @@
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Label Content="Outcome:" Grid.Column="0" Grid.Row="0"></Label>
-            <Label Content="Time:" Grid.Column="0" Grid.Row="1"></Label>
-            <Label Content="99999" Grid.Column="1" Grid.Row="0"></Label>
-            <Label Content="99999" Grid.Column="1" Grid.Row="1"></Label>
-            
-            
-            <Label Content="Enter name:" Grid.Column="0" Grid.Row="3"></Label>
-            <TextBox Grid.Column="0" Grid.Row="4"></TextBox>
+            <Label Content="Outcome:" Grid.Column="0" Grid.Row="0" FontSize="45" FontFamily="Bookman Old Style">
+                <Label.Foreground>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#ca9c4b"/>
+                        <GradientStop Color="#e5c179"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <Label Content="Time:" Grid.Column="0" Grid.Row="1" FontSize="45" FontFamily="Bookman Old Style">
+                <Label.Foreground>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#ca9c4b"/>
+                        <GradientStop Color="#e5c179"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <Label Content="{Binding serializationlogic.player.Outcome}" Grid.Column="1" Grid.Row="0" FontWeight="Bold" FontSize="45" FontFamily="Bookman Old Style">
+                <Label.Foreground>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#ca9c4b"/>
+                        <GradientStop Color="#e5c179"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <Label Content="{Binding serializationlogic.player.PlayerRunTime}" Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="45" FontFamily="Bookman Old Style">
+                <Label.Foreground>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#ca9c4b"/>
+                        <GradientStop Color="#e5c179"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
 
-            <Button Grid.Column="1" Grid.Row="4"></Button>
+
+            <Label Content="Enter name:" Grid.Column="0" Grid.Row="3" FontSize="45" FontFamily="Bookman Old Style">
+                <Label.Foreground>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#ca9c4b"/>
+                        <GradientStop Color="#e5c179"/>
+                    </LinearGradientBrush>
+                </Label.Foreground>
+            </Label>
+            <TextBox VerticalContentAlignment="Center" Grid.Column="0" Grid.Row="4" x:Name="tb_write" Text="{Binding PlayerName, UpdateSourceTrigger=Explicit}" TextChanged="tb_write_TextChanged" FontSize="45" FontFamily="Bookman Old Style">
+                <TextBox.Foreground>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#ca9c4b"/>
+                        <GradientStop Color="#e5c179"/>
+                    </LinearGradientBrush>
+                </TextBox.Foreground>
+                <TextBox.Background>
+                    <ImageBrush ImageSource="/Views/Images/TextboxBackground.png"></ImageBrush>
+                </TextBox.Background>
+            </TextBox>
+
+            <Button Background="{x:Null}" Grid.Column="1" Grid.Row="4" Command="{Binding WriteCommand}" x:Name="bt_write" Width="70" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left">
+                <Image Source="/Views/Images/ArrowRight.png"/>
+            </Button>
         </Grid>
-        <Button Content="Back" Width="20" Height="20" Command="{Binding BackToMenuCommand}"></Button>
     </Grid>
 </UserControl>
