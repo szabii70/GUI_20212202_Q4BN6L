@@ -1,5 +1,4 @@
 ﻿using EscapeFromZaun.Model;
-using EscapeFromZaun.Views;
 using EscapeFromZaun.WpfLogic;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
 using Microsoft.Toolkit.Mvvm.DependencyInjection;
@@ -11,9 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace EscapeFromZaun.ViewModels
 {
@@ -24,18 +21,6 @@ namespace EscapeFromZaun.ViewModels
         public ICommand BackToMenuCommand { get; set; }
         public ICommand WriteCommand { get; set; }
         public string BackgroundImage { get; set; }
-
-        private int zindex;
-
-        public int ZIndex
-        {
-            get { return zindex; }
-            set
-            {
-                SetProperty(ref zindex, value);
-            }
-        }
-
 
         private string playerName;
         public string PlayerName
@@ -53,11 +38,9 @@ namespace EscapeFromZaun.ViewModels
 
         public ScoreMenuWindowViewModel(IScoreSerializationLogic serializationlogic)
         {
-            ZIndex = -1;
             this.serializationlogic = serializationlogic;
             BackgroundImage = $"/Views/Images/Scoremenu.png";
             BackToMenuCommand = new RelayCommand(() => BackToMenuButton_CLick());
-
             WriteCommand = new RelayCommand(
                 () =>
                 {
@@ -68,13 +51,7 @@ namespace EscapeFromZaun.ViewModels
                     }
                     else
                     {
-                        ZIndex = 0;
-                        SaveConfirmWindow a = new SaveConfirmWindow();
-                        if ((bool)a.ShowDialog())
-                        {
-                            BackToMenuButton_CLick();
-                        }
-                        ZIndex = -1;
+                        BackToMenuButton_CLick();
                     }
                 });
         }

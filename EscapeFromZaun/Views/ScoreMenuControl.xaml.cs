@@ -29,10 +29,5 @@ namespace EscapeFromZaun.Views
         {
             tb_write.GetBindingExpression(TextBox.TextProperty).UpdateSource();
         }
-
-        private void bt_write_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
