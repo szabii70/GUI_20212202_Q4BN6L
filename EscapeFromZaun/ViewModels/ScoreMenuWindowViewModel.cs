@@ -11,6 +11,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Documents;
+using EscapeFromZaun.Views;
+
 
 namespace EscapeFromZaun.ViewModels
 {
@@ -35,12 +39,24 @@ namespace EscapeFromZaun.ViewModels
                 (WriteCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
+        private int zindex;
+
+        public int ZIndex
+        {
+            get { return zindex; }
+            set
+            {
+                SetProperty(ref zindex, value);
+            }
+        }
 
         public ScoreMenuWindowViewModel(IScoreSerializationLogic serializationlogic)
         {
+            ZIndex = -1;
             this.serializationlogic = serializationlogic;
             BackgroundImage = $"/Views/Images/Scoremenu.png";
             BackToMenuCommand = new RelayCommand(() => BackToMenuButton_CLick());
+
             WriteCommand = new RelayCommand(
                 () =>
                 {
@@ -51,7 +67,13 @@ namespace EscapeFromZaun.ViewModels
                     }
                     else
                     {
-                        BackToMenuButton_CLick();
+                        ZIndex = 0;
+                        SaveConfirmWindow a = new SaveConfirmWindow();
+                        if ((bool)a.ShowDialog())
+                        {
+                            BackToMenuButton_CLick();
+                        }
+                        ZIndex = -1;
                     }
                 });
         }

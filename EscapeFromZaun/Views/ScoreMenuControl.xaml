@@ -26,11 +26,6 @@
                         Background="{TemplateBinding Background}">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
-                            </Trigger>
-                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -118,5 +113,6 @@
                 <Image Source="/Views/Images/ArrowRight.png"/>
             </Button>
         </Grid>
+        <Rectangle Fill="Black" Panel.ZIndex="{Binding ZIndex, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Opacity="0.5"></Rectangle>
     </Grid>
 </UserControl>

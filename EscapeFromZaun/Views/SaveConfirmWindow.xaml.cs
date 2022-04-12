@@ -10,27 +10,32 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace EscapeFromZaun.Views
 {
     /// <summary>
-    /// Interaction logic for ScoreMenuControl.xaml
+    /// Interaction logic for SaveConfirmWindow.xaml
     /// </summary>
-    public partial class ScoreMenuControl : UserControl
+    public partial class SaveConfirmWindow : Window
     {
-        public ScoreMenuControl()
+        public SaveConfirmWindow()
         {
             InitializeComponent();
         }
 
-        private void tb_write_TextChanged(object sender, TextChangedEventArgs e)
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            tb_write.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            DialogResult = true;
         }
 
-        private void bt_write_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
