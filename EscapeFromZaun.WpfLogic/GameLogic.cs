@@ -59,6 +59,7 @@ namespace EscapeFromZaun.WpfLogic
             this.mapRepo = mapRepo;
         }
 
+
         public void SetupMap()
         {
             Platforms = new List<Platform>();
