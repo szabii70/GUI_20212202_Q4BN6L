@@ -17,17 +17,17 @@ namespace EscapeFromZaun.WpfLogic
         IGameLogic gameLogic;
         public PlayerModel player { get; set; }
 
-        public ScoreSerializationLogic(IScoreSerializationRepository scoreRepositry)
+        public ScoreSerializationLogic(IScoreSerializationRepository scoreRepositry, IGameLogic gameLogic )
         {
             this.scoreRepositry = scoreRepositry;
             this.player = new PlayerModel();
-            gameLogic = Ioc.Default.GetService<IGameLogic>();
+            this.gameLogic = gameLogic;
             this.player.Outcome = this.gameLogic.Player.Outcome;
             this.player.PlayerRunTime = this.gameLogic.Player.PlayerRunTime;
 
         }
 
-        public ScoreSerializationLogic() : this(IsInDesignMode ? null : Ioc.Default.GetService<IScoreSerializationRepository>())
+        public ScoreSerializationLogic() : this(IsInDesignMode ? null : Ioc.Default.GetService<IScoreSerializationRepository>(), Ioc.Default.GetService<IGameLogic>())
         {
         }
 

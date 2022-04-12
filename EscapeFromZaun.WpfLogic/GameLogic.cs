@@ -26,15 +26,7 @@ namespace EscapeFromZaun.WpfLogic
         public Brush PlayerBrush { get; set; }
         public PlayerModel Player { get; set; }
 
-        public GameLogic()
-        {
-            Player = new PlayerModel()
-            {
-                Name = "",
-                Outcome = "Victory",
-                PlayerRunTime = DateTime.Now
-            };
-        }
+
         public enum Directions { left,right }
         public PlayerLogic MainPlayer { get; set; }
         public List<Platform> Platforms { get; set; }
@@ -68,6 +60,12 @@ namespace EscapeFromZaun.WpfLogic
         public GameLogic(IMapGeneratingRepository mapRepo)
         {
             this.mapRepo = mapRepo;
+            Player = new PlayerModel()
+            {
+                Name = "",
+                Outcome = "Victory",
+                PlayerRunTime = DateTime.Now
+            };
         }
 
 

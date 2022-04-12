@@ -114,17 +114,17 @@ namespace EscapeFromZaun.Repository
                 }
             }
         }
-       ObservableCollection<PlayerModel> players { get; set; }
+       ObservableCollection<PlayerModel> playersDB { get; set; }
        public ScoreSerializationRepository()
         {
-            players = new ObservableCollection<PlayerModel>();
+            playersDB = new ObservableCollection<PlayerModel>();
         }
         public void WriteToJson(PlayerModel player)
         {
             ReadFromJson();
             PlayerModel player1 = new PlayerModel();
             player1 = player;
-            players.Add(player1);
+            playersDB.Add(player1);
             string s = JsonConvert.SerializeObject(players, Formatting.Indented);
             File.WriteAllText("highscores.json", s);
 
@@ -135,7 +135,7 @@ namespace EscapeFromZaun.Repository
             if (File.Exists("highscores.json"))
             {
                 string s = File.ReadAllText("highscores.json");
-                players = JsonConvert.DeserializeObject<ObservableCollection<PlayerModel>>(s);
+                playersDB = JsonConvert.DeserializeObject<ObservableCollection<PlayerModel>>(s);
             }
         }
     }
