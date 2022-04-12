@@ -67,6 +67,8 @@ namespace EscapeFromZaun.WpfLogic
             int rowsNumber = lines.Length;
             int colsNumber = lines[0].Length;
 
+            int platformWidth = (int)windowSize.Width/colsNumber;
+
             roofCord = (-1)*rowsNumber * 100; // in every 100 px a platform is drawn
             ;
             for (int i = 0; i < rowsNumber; i++)
@@ -77,11 +79,11 @@ namespace EscapeFromZaun.WpfLogic
                     var tmpC = tmp[j];
                     if(lines[i][j]=='J')
                     {
-                        MainPlayer = new PlayerLogic(200, 200) { DrawFromX= j*384, DrawFromY = roofCord + i * 100 + 1000 }; //384 is platfrom width but it can also be calculated by windowWidth / 5
+                        MainPlayer = new PlayerLogic(350, 200) { DrawFromX= j* platformWidth, DrawFromY = roofCord + i * 100 + 1000 }; //384 is platfrom width but it can also be calculated by windowWidth / 5
                     }
                     else if(lines[i][j]=='P')
                     {
-                        Platforms.Add(new Platform(j * 384, roofCord + i * 100 + 1000, 384, 50));
+                        Platforms.Add(new Platform(j * platformWidth, roofCord + i * 100 + 1000, 384, 50));
                         ;
                     }
                     else if(lines[i][j]=='B')
@@ -90,7 +92,7 @@ namespace EscapeFromZaun.WpfLogic
                     }
                     else if(lines[i][j]=='F')
                     {
-                        Platforms.Add(new FinishPlatform(j * 384, roofCord + i * 100 + 1000, 100, 100));
+                        Platforms.Add(new FinishPlatform(j * platformWidth, roofCord + i * 100 + 1000, 100, 100));
                     }
                     else if(lines[i][j]=='E')
                     {

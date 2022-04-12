@@ -14,6 +14,7 @@ namespace EscapeFromZaun.WpfLogic
     {
         int width;
         int height;
+        bool lookRight;
         public int DrawFromX { get; set; }
         public int DrawFromY { get; set; }
         List<Brush> runRightBrushes;
@@ -41,16 +42,16 @@ namespace EscapeFromZaun.WpfLogic
             jumpLeftBrushes = new List<Brush>();
             jumpRightBrushes = new List<Brush>();
 
-            //string[] runRight = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/RunRight", "*.png");
+            string[] runRight = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/RunRight2", "*.png");
             string[] runLeft = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/RunLeft", "*.png");
 
-            //string[] jumpRight = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/JumpRight", "*.png");
+            string[] jumpRight = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/JumpRight", "*.png");
             string[] jumpLeft = Directory.GetFiles(@"../../../../EscapeFromZaun//Views/Images/GameImages/JinxMove/JumpLeft", "*.png");
 
-            //foreach (string run in runRight)
-            //{
-            //    runRightBrushes.Add(new ImageBrush(new BitmapImage(new Uri(Path.Combine(run), UriKind.RelativeOrAbsolute))));
-            //}
+            foreach (string run in runRight)
+            {
+                runRightBrushes.Add(new ImageBrush(new BitmapImage(new Uri(Path.Combine(run), UriKind.RelativeOrAbsolute))));
+            }
             foreach (string run in runLeft)
             {
                 runLeftBrushes.Add(new ImageBrush(new BitmapImage(new Uri(Path.Combine(run), UriKind.RelativeOrAbsolute))));
@@ -61,15 +62,18 @@ namespace EscapeFromZaun.WpfLogic
                 jumpLeftBrushes.Add(new ImageBrush(new BitmapImage(new Uri(Path.Combine(item), UriKind.RelativeOrAbsolute))));
             }
 
+            foreach (string item in jumpRight)
+            {
+                jumpRightBrushes.Add(new ImageBrush(new BitmapImage(new Uri(Path.Combine(item), UriKind.RelativeOrAbsolute))));
+            }
+
             frameRunNumber = runLeftBrushes.Count();
             frameJumpNumber = jumpLeftBrushes.Count();
             actualRunFrameIndex = 0;
             actualJumpFrameIndex = 0;
 
-            //standRightBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/StandRight.png"), UriKind.RelativeOrAbsolute)));
-            //standLeftBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/StandLeft.png"), UriKind.RelativeOrAbsolute)));
-            //jumpRightBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/JumpRight.png"), UriKind.RelativeOrAbsolute)));
-            //jumpLeftBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/JumpLeft.png"), UriKind.RelativeOrAbsolute)));
+            standRightBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/StandRight.png"), UriKind.RelativeOrAbsolute)));
+            standLeftBrush = new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/JinxMove/StandLeft.png"), UriKind.RelativeOrAbsolute)));
         }
 
         //public Brush PlayerBrush
@@ -83,14 +87,14 @@ namespace EscapeFromZaun.WpfLogic
         {
             get
             {
-                return new RectangleGeometry(new System.Windows.Rect(DrawFromX, DrawFromY, width, height));
+                return new RectangleGeometry(new System.Windows.Rect(DrawFromX+130, DrawFromY+30, width-250, height-30));
             }
         }
         public Geometry CharacterFrame
         {
             get
             {
-                return null;
+                return new RectangleGeometry(new System.Windows.Rect(DrawFromX, DrawFromY, width, height));
             }
         }
         public void Move(Directions direction)
@@ -114,25 +118,26 @@ namespace EscapeFromZaun.WpfLogic
         }
         public Brush PlayerBrush(bool lookRight, bool goingRight, bool goingLeft, bool onFloor)
         {
-            ;
+            this.lookRight = lookRight;
             switch (lookRight)
             {
                 case true: //jobbra néz
                     switch (onFloor)
                     {
                         case false: //jobbra ugrik
-                            //return jumpRightBrush;
-                            return Brushes.AliceBlue;
+                            return JumpBrush();
+                            //return Brushes.AliceBlue;
                         case true:
                             actualJumpFrameIndex = 0;
                             switch (goingRight)
                             {
                                 case true:
                                     //jobbra mozgó képkockák
-                                    return Brushes.Yellow;
+                                    //return Brushes.Yellow;
+                                    return RunBrush();
                                 case false:
-                                    //return standRightBrush; //egy helyben áll
-                                    return Brushes.Orange;
+                                    return standRightBrush; //egy helyben áll
+                                    //return Brushes.Orange;
                             }
                     }
 
@@ -152,32 +157,58 @@ namespace EscapeFromZaun.WpfLogic
                                     //return Brushes.Wheat;
                                 case false:
                                     //return standLeftBrush; //egy helyben áll
-                                    return Brushes.Violet;
+                                    return standLeftBrush;
                             }
                     }
             }
         }
         private Brush RunBrush()
         {
-            actualRunFrameIndex++;
-            if(actualRunFrameIndex>=frameRunNumber)
+            if(lookRight)
             {
-                actualRunFrameIndex = 0;
-            }
-            return runLeftBrushes[actualRunFrameIndex];
-        }
-        private Brush JumpBrush()
-        {
-            if(actualJumpFrameIndex< frameJumpNumber-1)
-            {
-                actualJumpFrameIndex++;
-                return jumpLeftBrushes[actualJumpFrameIndex];
+                actualRunFrameIndex++;
+                if (actualRunFrameIndex >= frameRunNumber)
+                {
+                    actualRunFrameIndex = 0;
+                }
+                return runRightBrushes[actualRunFrameIndex];
             }
             else
             {
-                return jumpLeftBrushes[actualJumpFrameIndex-1];
+                actualRunFrameIndex++;
+                if (actualRunFrameIndex >= frameRunNumber)
+                {
+                    actualRunFrameIndex = 0;
+                }
+                return runLeftBrushes[actualRunFrameIndex];
             }
         }
-        
+        private Brush JumpBrush()
+        {
+            if(lookRight)
+            {
+                if (actualJumpFrameIndex < frameJumpNumber - 1)
+                {
+                    actualJumpFrameIndex++;
+                    return jumpRightBrushes[actualJumpFrameIndex];
+                }
+                else
+                {
+                    return jumpRightBrushes[actualJumpFrameIndex - 1];
+                }
+            }
+            else
+            {
+                if (actualJumpFrameIndex < frameJumpNumber - 1)
+                {
+                    actualJumpFrameIndex++;
+                    return jumpLeftBrushes[actualJumpFrameIndex];
+                }
+                else
+                {
+                    return jumpLeftBrushes[actualJumpFrameIndex - 1];
+                }
+            }
+        }
     }
 }
