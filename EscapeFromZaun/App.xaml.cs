@@ -25,6 +25,7 @@ namespace EscapeFromZaun
                 .AddSingleton<IRndBackgroundLogic, RndBackgroundLogic>()
                 .AddSingleton<IGameLogic, GameLogic>()
                 .AddSingleton<IScoreSerializationLogic, ScoreSerializationLogic>()
+                .AddSingleton<IMapGeneratingRepository, MapGeneratingRepository>()
                 .AddSingleton<IScoreSerializationRepository, ScoreSerializationRepository>()
                 .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
                 .BuildServiceProvider());

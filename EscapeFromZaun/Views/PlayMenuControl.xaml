@@ -4,19 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EscapeFromZaun.Views"
+             xmlns:vms="clr-namespace:EscapeFromZaun.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vms:PlayMenuWindowViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="18*"/>
             <RowDefinition Height="30*"/>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="140*"/>
-            <RowDefinition Height="85*"/>
             <RowDefinition Height="20*"/>
-            <RowDefinition Height="80*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="100*"/>
 
-            <RowDefinition Height="35*"/>
+            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*"/>
@@ -67,21 +71,38 @@
         <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Command="{Binding BackToMainMenuClick}" Grid.Column="1" Grid.Row="1">
             <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
         </Button>
-        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="2" Grid.Row="5">
+        <Button Style="{StaticResource RoundButton}" Command="{Binding PreviousCommand}" Background="{x:Null}" Grid.Column="2" Grid.Row="5">
             <Image Source="/Views/Images/Arrow.png" Stretch="Fill"/>
         </Button>
-        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="4" Grid.Row="5">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Command="{Binding NextCommand}" Grid.Column="4" Grid.Row="5">
             <Image Source="/Views/Images/ArrowRight.png" Stretch="Fill"/>
         </Button>
-        <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3" Margin="15">
-            <Image Source="/Views/Images/LoadGameButton.png" Stretch="Fill"/>
-            <ListBox Background="{x:Null}">
-
-                <StackPanel Orientation="Horizontal" Background="Gray" Margin="9" >
-                    <Label Content="Jinx"  Width="130" HorizontalContentAlignment="Left"/>
-                    <Label Content="Jinx"  Width="130" HorizontalContentAlignment="Center"/>
-                    <Label Content="Jinx"  Width="130" HorizontalContentAlignment="Right"/>
+        <Grid Grid.Column="3" Grid.Row="4" Grid.RowSpan="3" Margin="15" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="178*"/>
+            </Grid.RowDefinitions>
+            <Image Source="/Views/Images/ListBoxBackground.png" Stretch="Fill" Grid.RowSpan="3"/>
+            <Label Grid.Row="0" Content="HighScore" HorizontalContentAlignment="Center" FontFamily="Bookman Old Style" FontSize="45" VerticalContentAlignment="Center" Foreground="#e5c170" FontWeight="Medium" />
+            <Border BorderBrush="#e5c179" Grid.Row="1" BorderThickness="2.5">
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                    <Label Content="Name" HorizontalContentAlignment="Left" Width="122" FontSize="24" FontFamily="Bookman Old Style" Foreground="#e5c179" VerticalContentAlignment="Center"/>
+                    <Label Content="Time" HorizontalContentAlignment="Center" Width="122" FontSize="24" FontFamily="Bookman Old Style" Foreground="#e5c179" VerticalContentAlignment="Center"/>
+                    <Label Content="Output" HorizontalContentAlignment="Right" Width="122" FontSize="24" FontFamily="Bookman Old Style" Foreground="#e5c179" VerticalContentAlignment="Center"/>
                 </StackPanel>
+            </Border>
+
+            <ListBox Background="{x:Null}" ItemsSource="{Binding JustFive}" Grid.Row="2" HorizontalAlignment="Center" BorderThickness="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" >
+                            <Label Content="{Binding Name}" Background="#444545"  Width="120" HorizontalContentAlignment="Left" Foreground="#e5c179" />
+                            <Label Content="{Binding PlayerRunTime.TimeOfDay}" Background="#444545"  Width="120" HorizontalContentAlignment="Center" Foreground="#e5c179"/>
+                            <Label Content="{Binding Outcome}" Background="#444545" Width="120" HorizontalContentAlignment="Right" Foreground="#e5c179"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
 
