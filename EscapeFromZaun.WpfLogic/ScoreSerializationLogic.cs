@@ -64,9 +64,9 @@ namespace EscapeFromZaun.WpfLogic
             return scoreRepositry.SecondTake();
         }
 
-        public void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take, ref int update)
+        public void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take,ref int skip, ref int update)
         {
-            scoreRepositry.PreviousCommand(sumPlayers, justFive, take, ref update);
+            scoreRepositry.PreviousCommand(sumPlayers, justFive, take,ref skip, ref update);
         }
             
 

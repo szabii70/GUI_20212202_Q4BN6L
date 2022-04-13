@@ -21,7 +21,7 @@ namespace EscapeFromZaun.WpfLogic
 
         int SecondTake();
 
-        void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take, ref int update);
+        void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take,ref int skip, ref int update);
        public void WriteToJson(string playername);
         public PlayerModel player { get; set; }
 

@@ -60,7 +60,7 @@ namespace EscapeFromZaun.ViewModels
             Players = new ObservableCollection<PlayerModel>();
             JustFive = new ObservableCollection<PlayerModel>();
 
-            logic.DeSerialize("Views/Game.json");
+            logic.DeSerialize("highscores.json");
 
             logic.SetupCollections(Players);
 
@@ -73,9 +73,9 @@ namespace EscapeFromZaun.ViewModels
 
             NextCommand = new RelayCommand(
                 () => logic.NextCommand(Players, JustFive, ref skipped, takesecond, ref addded),
-                () => (addded + takefirst) != (takefirst + takesecond));
+                () => (addded + takefirst) != (takefirst + takesecond) ||skipped != 10);
 
-            PreviousCommand = new RelayCommand(() => logic.PreviousCommand(Players, JustFive, takefirst, ref updated));
+            PreviousCommand = new RelayCommand(() => logic.PreviousCommand(Players, JustFive, takefirst,ref skipped,ref updated));
 
 
             this.NewGameClick = new RelayCommand(() => this.NewGameClick_Button());

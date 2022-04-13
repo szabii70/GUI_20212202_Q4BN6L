@@ -22,7 +22,7 @@ namespace EscapeFromZaun.Repository
         int FirstTake();
 
 
-        void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take, ref int update);
+        void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take,ref int skip, ref int update);
         public void WriteToJson(PlayerModel player);
         public void ReadFromJson();
     }

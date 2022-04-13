@@ -9,7 +9,6 @@
 
   <ItemGroup>
     <None Remove="Views\Animation\PlayMenu.mp4" />
-    <None Remove="Views\Game.json" />
     <None Remove="Views\Images\Arrow.png" />
     <None Remove="Views\Images\ArrowRight.png" />
     <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0001.png" />
@@ -81,9 +80,6 @@
 
   <ItemGroup>
     <Content Include="Views\Animation\PlayMenu.mp4">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\Game.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0001.png">

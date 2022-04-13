@@ -93,10 +93,10 @@ namespace EscapeFromZaun.Repository
             }
         }
 
-        public void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take, ref int update)
+        public void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take,ref int skip,  ref int update)
         {
             var z = sumPlayers.OrderBy(t => t.PlayerRunTime).Take(take).ToList();
-
+            skip = 5;
             var count = sumPlayers.Take(take).Count();
             var div = justFive.Count();
             var end = z.Count();
@@ -125,8 +125,9 @@ namespace EscapeFromZaun.Repository
             PlayerModel player1 = new PlayerModel();
             player1 = player;
             playersDB.Add(player1);
-            string s = JsonConvert.SerializeObject(players, Formatting.Indented);
+            string s = JsonConvert.SerializeObject(playersDB, Formatting.Indented);
             File.WriteAllText("highscores.json", s);
+
 
         }
 
