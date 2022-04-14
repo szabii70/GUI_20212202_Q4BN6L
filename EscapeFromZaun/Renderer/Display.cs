@@ -48,6 +48,12 @@ namespace EscapeFromZaun.Renderer
                 {
                     drawingContext.DrawGeometry(item.ItemBrush, null, item.Area);
                 }
+
+                foreach (var item in logic.Enemies)
+                {
+                    drawingContext.DrawGeometry(item.ItemBrush, null, item.Area);
+
+                }
             }
         }
     }

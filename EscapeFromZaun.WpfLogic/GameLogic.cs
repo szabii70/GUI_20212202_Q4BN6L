@@ -39,7 +39,29 @@ namespace EscapeFromZaun.WpfLogic
             }
         }
 
+        //ENEMY----------------------------------------------------------------------------------------------------------------------
 
+        double enemySpeed = 2.5;
+        public List<Enemy> Enemies { get; set; }
+        //Collison
+        bool collisonEnter = false;
+        bool collisonLeft = false; //ha balrol erkezik a karakter 
+        bool collisonRight = false; //ha jobbrol erkezik a karakter 
+        //Attack
+        bool canAttack = true;
+        float attackCooldown;
+        float timeSinceAttack;
+
+
+
+        //Defend
+
+        //void LookAtTarget();
+        //void Attack();
+
+        public List<Bullet> Bullets { get; set; }
+
+        //ENEMY-------------------------------------------------------------------------------------------------------------------------------
         public void SetupSizes(System.Windows.Size size)
         {
             this.windowSize = size;
@@ -55,6 +77,7 @@ namespace EscapeFromZaun.WpfLogic
             //Platforms.Add(new Platform(100, -100, 300, 50));
             //Platforms.Add(new Platform(700, -300, 300, 50));
             SetupMap();
+            
             BackgroundDatas = new BackgroundDatas(windowSize.Width, 10000) { DrawFromX=0, DrawFromY=roofCord-300}; //Késõbb lehet a kép tetejét bõvítjük, ahelyett, hogymagasabbról kezdõdjön a kirajzolás
         }
         public GameLogic(IMapGeneratingRepository mapRepo)
@@ -72,6 +95,7 @@ namespace EscapeFromZaun.WpfLogic
         public void SetupMap()
         {
             Platforms = new List<Platform>();
+            Enemies = new List<Enemy>();
             string[] lines = mapRepo.MapInStringLines();
 
             int rowsNumber = lines.Length;
@@ -106,7 +130,7 @@ namespace EscapeFromZaun.WpfLogic
                     }
                     else if(lines[i][j]=='E')
                     {
-                        //not defined yet
+                        Enemies.Add(new Enemy(j * platformWidth, roofCord + i * 100 + 1000, 100, 200, 7));
                     }
                 }
             }
@@ -152,7 +176,9 @@ namespace EscapeFromZaun.WpfLogic
 
         public void TimeStep()
         {
+            EnemyInteract();
             PlayerInteract();
+            
         }
 
         private void PlayerInteract()
@@ -169,6 +195,10 @@ namespace EscapeFromZaun.WpfLogic
             {
                 item.DrawFromY -= jumpSpeed;
             }
+            foreach (var item in Enemies)
+            {
+                item.DrawFromY -= jumpSpeed;
+            }
             BackgroundDatas.DrawFromY -= jumpSpeed;
 
             if (jumping == true)
@@ -182,6 +212,12 @@ namespace EscapeFromZaun.WpfLogic
                 {
                     item.DrawFromY += force;
                 }
+
+                //
+                foreach (var enemy in Enemies)
+                {
+                    enemy.DrawFromY += force;
+                }
             }
             else
             {
@@ -193,6 +229,11 @@ namespace EscapeFromZaun.WpfLogic
                 foreach (var item in Platforms)
                 {
                     item.DrawFromY -= force;
+                }
+
+                foreach (var enemy in Enemies)
+                {
+                    enemy.DrawFromY -= force;
                 }
             }
             if (jumping == true && force <= 0)
@@ -234,6 +275,126 @@ namespace EscapeFromZaun.WpfLogic
                 foreach (var item in Platforms)
                 {
                     item.DrawFromY += dif;
+                }
+
+                foreach (var enemy in Enemies)
+                {
+                    enemy.DrawFromY += dif;
+                }
+            }
+            PlayerBrush = MainPlayer.PlayerBrush(lookRight, goingRight, goingLeft, onFloor);
+            onFloor = false;
+        }
+
+
+        public void EnemyInteract()
+        {
+            bool onFloor = false;
+            int dif = 0;
+            foreach (var platform in Platforms)
+            {
+                
+                foreach (var enemy in Enemies)
+                {
+                    enemy.Damage = 3; // DAMAGE
+
+                    enemy.DrawFromX -= (int)enemySpeed;
+
+                    if (enemy.Area.Bounds.Left < platform.Area.Bounds.Left || enemy.Area.Bounds.Left + enemy.Area.Bounds.Width > platform.Area.Bounds.Left + platform.Area.Bounds.Width)
+                    {
+                        enemySpeed = -enemySpeed;
+                        
+                    }
+
+                    
+                    //onFloor = false;
+
+                    //BAL
+                    if (MainPlayer.IsCollision(enemy.CollisonArea) && enemy.CollisonArea.Bounds.Left >= MainPlayer.Hitbox.Bounds.Left && MainPlayer.Hitbox.Bounds.Bottom > enemy.CollisonArea.Bounds.Bottom)
+                    {
+                        collisonEnter = true;
+                        collisonLeft = true;
+                        collisonRight = false;
+                        if (collisonEnter == true)
+                        {
+                            enemy.DrawFromX += (int)enemySpeed;
+                            enemySpeed = 0;
+                            //Attack();
+                        }
+
+                        //CollisonExit();
+                    }
+                    //JOBB
+                    else if (MainPlayer.IsCollision(enemy.CollisonArea) && enemy.CollisonArea.Bounds.Right <= MainPlayer.Hitbox.Bounds.Right && MainPlayer.Hitbox.Bounds.Bottom > enemy.CollisonArea.Bounds.Bottom)
+                    {
+                        collisonEnter = true;
+                        collisonLeft = false;
+                        collisonRight = true;
+                        if (collisonEnter == true)
+                        {
+                            enemy.DrawFromX += (int)enemySpeed;
+                            enemySpeed = 0;
+                            //Attack();
+                        }
+
+                        //CollisonExit();
+
+                    }
+
+                    //Fent
+                    //{
+                    //    if (MainPlayer.IsCollision(enemy.Area) && MainPlayer.CharacterArea.Bounds.BottomLeft.Y <= enemy.CollisonArea.Bounds.BottomLeft.Y) //talajjal való ütközés
+                    //    {
+                    //        collisonEnter = true;
+                    //        collisonLeft = false;
+                    //        collisonRight = true;
+                    //        if (collisonEnter == true)
+                    //        {
+                    //            enemy.DrawFromX += (int)enemySpeed;
+                    //            enemySpeed = 0;
+                    //            Attack();
+                    //        }
+                    //    }
+                    //}
+
+
+
+                    //player collison with enemy
+                    if (MainPlayer.IsCollision(enemy.Area) && MainPlayer.Hitbox.Bounds.BottomLeft.Y >= enemy.Area.Bounds.BottomLeft.Y) //feje ütközik a plafonnal
+                    {
+                        jumping = false;
+                    }
+                    if (MainPlayer.IsCollision(enemy.Area) && enemy.Area.Bounds.Left >= MainPlayer.Hitbox.Bounds.Left
+                        && MainPlayer.Hitbox.Bounds.Bottom > enemy.Area.Bounds.Bottom) //bal oldalról ütközik miközben jobbra megy
+                    {
+                        MainPlayer.Move(Directions.left);
+                    }
+                    else if (MainPlayer.IsCollision(enemy.Area) && enemy.Area.Bounds.Right <= MainPlayer.Hitbox.Bounds.Right && MainPlayer.Hitbox.Bounds.Bottom > enemy.Area.Bounds.Bottom)
+                    {
+                        MainPlayer.Move(Directions.right);
+                    }
+                    if (MainPlayer.IsCollision(enemy.Area) && jumping == false && MainPlayer.Hitbox.Bounds.BottomLeft.Y <= enemy.Area.Bounds.BottomLeft.Y) //talajjal való ütközés
+                    {
+                        force = 20; //it was 25
+                        //MainPlayer.DrawFromY = (int)enemy.Area.Bounds.TopLeft.Y - (int)MainPlayer.Hitbox.Bounds.Height;
+                        onFloor = true;
+                        dif = (int)(MainPlayer.Hitbox.Bounds.Bottom + enemy.Area.Bounds.Height - enemy.Area.Bounds.Bottom);
+                        jumpSpeed = 0;
+                    }
+                    
+                }
+            }
+            if (onFloor)
+            {
+                BackgroundDatas.DrawFromY += dif;
+                foreach (var item in Platforms)
+                {
+                    item.DrawFromY += dif;
+                }
+
+                foreach (var enemy in Enemies)
+                {
+                    enemy.DrawFromY += dif;
                 }
             }
             PlayerBrush = MainPlayer.PlayerBrush(lookRight, goingRight, goingLeft, onFloor);
