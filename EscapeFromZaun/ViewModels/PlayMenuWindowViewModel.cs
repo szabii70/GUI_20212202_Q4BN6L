@@ -87,7 +87,9 @@ namespace EscapeFromZaun.ViewModels
         private void NewGameClick_Button()
         {
             //Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive).DataContext = new GameWindowViewModel();
+
             var window = new GameWindow(gameLogic);
+
             window.GameFinished += Window_GameFinished;
             window.ShowDialog();
         }

@@ -93,7 +93,7 @@ namespace EscapeFromZaun.Repository
             }
         }
 
-        public void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take,ref int skip,  ref int update)
+        public void PreviousCommand(IList<PlayerModel> sumPlayers, IList<PlayerModel> justFive, int take, ref int skip, ref int update)
         {
             var z = sumPlayers.OrderBy(t => t.PlayerRunTime).Take(take).ToList();
             skip = 5;
@@ -114,17 +114,15 @@ namespace EscapeFromZaun.Repository
                 }
             }
         }
-       ObservableCollection<PlayerModel> playersDB { get; set; }
-       public ScoreSerializationRepository()
+        ObservableCollection<PlayerModel> playersDB { get; set; }
+        public ScoreSerializationRepository()
         {
             playersDB = new ObservableCollection<PlayerModel>();
         }
         public void WriteToJson(PlayerModel player)
         {
             ReadFromJson();
-            PlayerModel player1 = new PlayerModel();
-            player1 = player;
-            playersDB.Add(player1);
+            playersDB.Add(player);
             string s = JsonConvert.SerializeObject(playersDB, Formatting.Indented);
             File.WriteAllText("highscores.json", s);
 

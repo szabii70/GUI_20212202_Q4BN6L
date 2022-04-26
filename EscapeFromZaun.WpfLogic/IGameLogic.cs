@@ -11,6 +11,8 @@ namespace EscapeFromZaun.WpfLogic
     public interface IGameLogic
     {
         public event EventHandler GameFinished;
+        public event EventHandler GamePaused;
+
         PlayerModel Player { get; set; }
         public PlayerLogic MainPlayer { get; set; }
         public List<Platform> Platforms { get; set; }

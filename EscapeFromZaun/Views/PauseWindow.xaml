@@ -1,0 +1,49 @@
+﻿<Window x:Class="EscapeFromZaun.Views.PauseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EscapeFromZaun.Views"
+        mc:Ignorable="d"
+        Title="ConfirmWindow" Height="200" Width="600"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#1E2328"
+        BorderThickness="5"
+        >
+    <Window.BorderBrush>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#ca9c4b"/>
+            <GradientStop Color="#e5c179"/>
+        </LinearGradientBrush>
+    </Window.BorderBrush>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="114*"></ColumnDefinition>
+            <ColumnDefinition Width="72*"></ColumnDefinition>
+            <ColumnDefinition Width="109*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48*"></RowDefinition>
+            <RowDefinition Height="48*"></RowDefinition>
+            <RowDefinition Height="45*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Grid.ColumnSpan="3" Grid.Row="0"  HorizontalContentAlignment="Center"  VerticalContentAlignment="Center" Content="Game paused" FontSize="20"  FontFamily="Bookman Old Style" Padding="5,20,5,5" Margin="0,24,0,24" Grid.RowSpan="2" >
+            <Label.Foreground>
+                <LinearGradientBrush>
+                    <GradientStop Color="#ca9c4b"/>
+                    <GradientStop Color="#e5c179"/>
+                </LinearGradientBrush>
+            </Label.Foreground>
+        </Label>
+
+        <Button Background="{x:Null}" Grid.Column="0" Grid.Row="1" Margin="20,47,20,10" x:Name="resume" Click="resume_Click" Grid.RowSpan="2">
+            <Image Source="/Views/Images/ResumeButton.png" Stretch="Fill"></Image>
+        </Button>
+        <Button Background="{x:Null}" Grid.Column="2" Grid.Row="1"  x:Name="quit" Click="quit_Click" Margin="20,47,20,10" Grid.RowSpan="2">
+            <Image Source="/Views/Images/QuitButton.png" Stretch="Fill"></Image>
+        </Button>
+    </Grid>
+</Window>

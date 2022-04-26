@@ -22,6 +22,8 @@ namespace EscapeFromZaun.ViewModels
     {
 
         public IScoreSerializationLogic serializationlogic { get; set; }
+
+        public IGameLogic gamelogic { get; set; }
         public ICommand BackToMenuCommand { get; set; }
         public ICommand WriteCommand { get; set; }
         public string BackgroundImage { get; set; }
@@ -39,6 +41,22 @@ namespace EscapeFromZaun.ViewModels
                 (WriteCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
+        public string PlayerRunTime
+        {
+            get
+            {
+                return gamelogic.Player.timestring;
+            }
+        }
+        public string PlayerOutcome
+        {
+            get
+            {
+                return gamelogic.Player.Outcome;
+            }
+        }
+
+
         private int zindex;
 
         public int ZIndex
@@ -50,10 +68,11 @@ namespace EscapeFromZaun.ViewModels
             }
         }
 
-        public ScoreMenuWindowViewModel(IScoreSerializationLogic serializationlogic)
+        public ScoreMenuWindowViewModel(IScoreSerializationLogic serializationlogic, IGameLogic gamelogic)
         {
             ZIndex = -1;
             this.serializationlogic = serializationlogic;
+            this.gamelogic = gamelogic;
             BackgroundImage = $"/Views/Images/Scoremenu.png";
             BackToMenuCommand = new RelayCommand(() => BackToMenuButton_CLick());
 
@@ -62,8 +81,15 @@ namespace EscapeFromZaun.ViewModels
                 {
                     if (playerName != "" && playerName != null)
                     {
-                        serializationlogic.WriteToJson(playerName);
-                        BackToMenuButton_CLick();
+                        ZIndex = 0;
+                        gamelogic.Player.Name = PlayerName;
+                        serializationlogic.SavePlayer(gamelogic.Player);
+                        SaveConfirmWindowNotEmpty confirm = new SaveConfirmWindowNotEmpty();
+                        if ((bool)confirm.ShowDialog())
+                        {
+                            BackToMenuButton_CLick();
+                        }
+                        ZIndex = -1;
                     }
                     else
                     {
@@ -78,7 +104,7 @@ namespace EscapeFromZaun.ViewModels
                 });
         }
 
-        public ScoreMenuWindowViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<IScoreSerializationLogic>())
+        public ScoreMenuWindowViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<IScoreSerializationLogic>(), Ioc.Default.GetService<IGameLogic>())
         {
         }
         public static bool IsInDesignMode

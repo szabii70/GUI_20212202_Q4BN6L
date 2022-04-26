@@ -23,6 +23,8 @@ namespace EscapeFromZaun.WpfLogic
         System.Windows.Size windowSize;
 
         public event EventHandler GameFinished;
+        public event EventHandler GamePaused;
+
         public Brush PlayerBrush { get; set; }
         public PlayerModel Player { get; set; }
 
@@ -64,7 +66,7 @@ namespace EscapeFromZaun.WpfLogic
             {
                 Name = "",
                 Outcome = "Victory",
-                PlayerRunTime = DateTime.Now
+                PlayerRunTime = new DateTime(0)
             };
         }
 
@@ -141,6 +143,10 @@ namespace EscapeFromZaun.WpfLogic
                     break;
                 case Key.D:
                     goingRight = false;
+                    break;
+                case Key.Escape:
+                    EventHandler handler = GamePaused;
+                    handler?.Invoke(this, null);
                     break;
             }
         }

@@ -79,7 +79,7 @@
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
-            <Label Content="{Binding serializationlogic.player.PlayerRunTime}" Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="45" FontFamily="Bookman Old Style">
+            <Label Content="{Binding PlayerRunTime, UpdateSourceTrigger=Explicit}" Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="45" FontFamily="Bookman Old Style">
                 <Label.Foreground>
                     <LinearGradientBrush>
                         <GradientStop Color="#ca9c4b"/>

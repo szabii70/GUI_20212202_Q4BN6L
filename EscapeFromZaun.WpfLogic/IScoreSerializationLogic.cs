@@ -25,6 +25,8 @@ namespace EscapeFromZaun.WpfLogic
        public void WriteToJson(string playername);
         public PlayerModel player { get; set; }
 
+        public void SavePlayer(PlayerModel player);
+
 
     }
 }

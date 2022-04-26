@@ -15,6 +15,8 @@ namespace EscapeFromZaun.WpfLogic
     {
         public MediaPlayer mp { get; set; }
         public bool  Muted { get; set; }
+        public bool MutedSound { get; set; }
+
         private double volume;
         IMessenger messenger;
 

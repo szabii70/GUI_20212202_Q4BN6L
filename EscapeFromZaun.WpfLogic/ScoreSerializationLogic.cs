@@ -86,6 +86,10 @@ namespace EscapeFromZaun.WpfLogic
             scoreRepositry.WriteToJson(player);
         }
 
+        public void SavePlayer(PlayerModel player)
+        {
+            scoreRepositry.WriteToJson(player);
+        }
 
     }
 }

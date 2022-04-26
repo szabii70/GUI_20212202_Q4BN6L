@@ -27,6 +27,14 @@ namespace EscapeFromZaun.ViewModels
                 return _backgroundLogic.Muted;
             }
         }
+
+        public bool MutedSound
+        {
+            get
+            {
+                return _backgroundLogic.MutedSound;
+            }
+        }
         public bool NotMuted
         {
             get
