@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace EscapeFromZaun.WpfLogic
 {
+    public enum BulletType { player, enemy }
+
     public class Bullet
     {
         public Bullet(System.Drawing.Point from, Vector to)
@@ -29,9 +32,9 @@ namespace EscapeFromZaun.WpfLogic
 
         }
 
+        public BulletType Type { get; set; }
 
-
-        public bool Move(System.Drawing.Size area)
+        public bool Move(System.Windows.Size area)
         {
             //hova kerülne a lépéskor a lövedék
             System.Drawing.Point newCenter =
@@ -44,7 +47,10 @@ namespace EscapeFromZaun.WpfLogic
                 )
             {
                 //pályán belül van a lövedék
+                
+
                 Center = newCenter;
+                
                 return true;
             }
             else

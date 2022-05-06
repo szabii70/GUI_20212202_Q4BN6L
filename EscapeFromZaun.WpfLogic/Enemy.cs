@@ -14,6 +14,7 @@ namespace EscapeFromZaun.WpfLogic
         int width;
         int height;
 
+
         public Enemy(int drawFromX, int drawFromY, int width, int height, int health)
         {
             this.DrawFromX = drawFromX;
@@ -21,6 +22,7 @@ namespace EscapeFromZaun.WpfLogic
             this.width = width;
             this.height = height;
             this.health = health;
+            
         }
 
         private int health;
@@ -31,6 +33,7 @@ namespace EscapeFromZaun.WpfLogic
             set { health = value; }
         }
 
+        public BulletType Type { get; set; }
 
         public int Damage { get; set; }
 
@@ -54,7 +57,7 @@ namespace EscapeFromZaun.WpfLogic
         {
             get
             {
-                return new RectangleGeometry(new System.Windows.Rect(DrawFromX - 150, DrawFromY, width + 300, height));
+                return new RectangleGeometry(new System.Windows.Rect(DrawFromX - 100, DrawFromY, width + 200, height - 20));
             }
         }
     }

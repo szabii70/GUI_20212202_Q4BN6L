@@ -27,13 +27,27 @@ namespace EscapeFromZaun.WpfLogic
         int frameJumpNumber;
         int actualRunFrameIndex;
         int actualJumpFrameIndex;
-        public PlayerLogic(int width, int height)
+
+        private int health;
+
+        public int Health
+        {
+            get { return health; }
+            set { health = value; }
+        }
+
+        public int Damage { get; set; }
+        public PlayerLogic(int width, int height, int health)
         {
             this.width = width;
             this.height = height;
-
+            this.health = health;
+           
+            
             LoadImages();
         }
+
+        
 
         private void LoadImages()
         {

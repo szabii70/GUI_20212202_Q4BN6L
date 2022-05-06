@@ -43,6 +43,7 @@ namespace EscapeFromZaun.Renderer
                 drawingContext.DrawRectangle(BackgroundBrush, null,logic.BackgroundRect);
                 //drawingContext.DrawGeometry(Brushes.Red, null, player.Hitbox); //Hitbox
                 drawingContext.DrawGeometry(logic.PlayerBrush, null, player.CharacterFrame); //Player
+                
 
                 foreach (var item in logic.Platforms)
                 {
@@ -52,7 +53,12 @@ namespace EscapeFromZaun.Renderer
                 foreach (var item in logic.Enemies)
                 {
                     drawingContext.DrawGeometry(item.ItemBrush, null, item.Area);
+                    //drawingContext.DrawGeometry(Brushes.Yellow, null, item.CollisonArea);
+                }
 
+                foreach (var item in logic.Bullets)
+                {
+                    drawingContext.DrawEllipse(item.ItemBrush, null, new Point(item.Center.X, item.Center.Y), 5, 5);
                 }
             }
         }
