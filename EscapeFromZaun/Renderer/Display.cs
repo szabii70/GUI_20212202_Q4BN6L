@@ -60,7 +60,18 @@ namespace EscapeFromZaun.Renderer
                 {
                     drawingContext.DrawEllipse(item.ItemBrush, null, new Point(item.Center.X, item.Center.Y), 5, 5);
                 }
+
+
+                drawingContext.DrawRectangle((SolidColorBrush)new BrushConverter().ConvertFrom("#e5c179"), null, new Rect(0, 0, 180, 100));
+                drawingContext.DrawRectangle((SolidColorBrush)new BrushConverter().ConvertFrom("#1E2328"), null, new Rect(5, 5, 170, 90));
+
+
+                drawingContext.DrawText(
+                new FormattedText(this.logic.Player.timestring.ToString(), System.Globalization.CultureInfo.CurrentCulture,
+                FlowDirection.LeftToRight, new Typeface(new FontFamily("Bookman Old Style"), FontStyles.Normal, FontWeights.Bold, FontStretches.Normal), 40, (SolidColorBrush)new BrushConverter().ConvertFrom("#e5c179")),
+                new Point(25, 25));
             }
         }
+
     }
 }

@@ -8,5 +8,13 @@ namespace EscapeFromZaun.Model
         public string Name { get; set; }
         public string Outcome { get; set; }
         public DateTime PlayerRunTime { get; set; }
+
+        public string timestring
+        {
+            get
+            {
+                return PlayerRunTime.ToString(@"mm\:ss");
+            }
+        }
     }
 }

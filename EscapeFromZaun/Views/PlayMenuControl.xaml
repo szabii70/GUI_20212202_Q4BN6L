@@ -98,7 +98,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" >
                             <Label Content="{Binding Name}" Background="#444545"  Width="120" HorizontalContentAlignment="Left" Foreground="#e5c179" />
-                            <Label Content="{Binding PlayerRunTime.TimeOfDay}" Background="#444545"  Width="120" HorizontalContentAlignment="Center" Foreground="#e5c179"/>
+                            <Label Content="{Binding timestring}" Background="#444545"  Width="120" HorizontalContentAlignment="Center" Foreground="#e5c179"/>
                             <Label Content="{Binding Outcome}" Background="#444545" Width="120" HorizontalContentAlignment="Right" Foreground="#e5c179"/>
                         </StackPanel>
                     </DataTemplate>

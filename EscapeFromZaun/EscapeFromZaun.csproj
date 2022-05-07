@@ -72,7 +72,9 @@
     <None Remove="Views\Images\LoadGameButton.png" />
     <None Remove="Views\Images\NewGameButton.png" />
     <None Remove="Views\Images\NoButton.png" />
+    <None Remove="Views\Images\OKButton.png" />
     <None Remove="Views\Images\PlayMenu.png" />
+    <None Remove="Views\Images\ResumeButton.png" />
     <None Remove="Views\Images\Scoremenu.png" />
     <None Remove="Views\Images\SliderButton.png" />
     <None Remove="Views\Images\TextboxBackground.png" />
@@ -267,6 +269,9 @@
     <Content Include="Views\Images\ArrowRight.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Views\Images\OKButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\Images\ListBoxBackground.png" />
     <Resource Include="Views\Images\LoadGameButton.png" />
     <Resource Include="Views\Images\NewGameButton.png" />
@@ -322,7 +327,12 @@
     <Resource Include="Views\Images\MainMenuBackground\MainMenu4.jpg" />
     <Resource Include="Views\Images\MainMenuBackground\MainMenu5.jpg" />
     <Resource Include="Views\Images\PlayButton.png" />
-    <Resource Include="Views\Images\QuitButton.png" />
+    <Resource Include="Views\Images\QuitButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Views\Images\ResumeButton.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Views\Images\Scoremenu.png" />
     <Resource Include="Views\Images\SettingsButton.png" />
     <Resource Include="Views\Images\SliderButton.png">
@@ -344,6 +354,12 @@
     <None Update="Views\Images\GameImages\zaun.jpeg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\SaveConfirmWindowNotEmpty.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
   </ItemGroup>
 
 </Project>
