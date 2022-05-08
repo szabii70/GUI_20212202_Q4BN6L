@@ -70,6 +70,17 @@ namespace EscapeFromZaun.Renderer
                 new FormattedText(this.logic.Player.timestring.ToString(), System.Globalization.CultureInfo.CurrentCulture,
                 FlowDirection.LeftToRight, new Typeface(new FontFamily("Bookman Old Style"), FontStyles.Normal, FontWeights.Bold, FontStretches.Normal), 40, (SolidColorBrush)new BrushConverter().ConvertFrom("#e5c179")),
                 new Point(25, 25));
+
+                ;
+                //ÉLET
+                drawingContext.DrawRectangle((SolidColorBrush)new BrushConverter().ConvertFrom("#e5c179"), null, new Rect(windowSize.Width - 175 , 0, 180, 100));
+                drawingContext.DrawRectangle((SolidColorBrush)new BrushConverter().ConvertFrom("#1E2328"), null, new Rect(windowSize.Width - 170, 5, 165, 90));
+                drawingContext.DrawText(
+                new FormattedText(this.logic.MainPlayer.Health.ToString(), System.Globalization.CultureInfo.CurrentCulture,
+                FlowDirection.LeftToRight, new Typeface(new FontFamily("Bookman Old Style"), FontStyles.Normal, FontWeights.Bold, FontStretches.Normal), 40, (SolidColorBrush)new BrushConverter().ConvertFrom("#e5c179")),
+                new Point(windowSize.Width - 145, 25));
+
+                drawingContext.DrawEllipse(Brushes.Red, null, new Point(windowSize.Width - 55, 45), 25, 25);
             }
         }
 
