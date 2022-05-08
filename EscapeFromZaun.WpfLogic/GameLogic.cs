@@ -118,7 +118,7 @@ namespace EscapeFromZaun.WpfLogic
                     }
                     else if (lines[i][j] == 'B')
                     {
-                        //not defined yet
+                        Platforms.Add(new Platform(j * platformWidth, roofCord + i * 100 + 1000, 2*384, 100));
                     }
                     else if (lines[i][j] == 'F')
                     {
@@ -127,6 +127,10 @@ namespace EscapeFromZaun.WpfLogic
                     else if (lines[i][j] == 'E')
                     {
                         Enemies.Add(new Enemy(j * platformWidth, roofCord + i * 100 + 1000, 100, 200, 7));
+                    }
+                    else if (lines[i][j] == 'M')
+                    {
+                        Platforms.Add(new Platform(j * platformWidth, roofCord + i * 100 + 1000, 384, 50) { Moveable=true});
                     }
                 }
             }
@@ -181,6 +185,7 @@ namespace EscapeFromZaun.WpfLogic
 
         public void TimeStep()
         {
+            PlatformsMove();
             EnemyInteract();
             PlayerInteract();
             BulletInteract();
@@ -603,6 +608,31 @@ namespace EscapeFromZaun.WpfLogic
             }
 
 
+        }
+        private void PlatformsMove()
+        {
+            foreach (var platform in Platforms)
+            {
+                if(platform.Moveable)
+                {
+                    if(platform.GoingRight == true && platform.Area.Bounds.Right < windowSize.Width)
+                    {
+                        platform.DrawFromX += 3;
+                    }
+                    else
+                    {
+                        platform.GoingRight = false;
+                    }
+                    if(platform.GoingRight == false && platform.Area.Bounds.Left >= 0)
+                    {
+                        platform.DrawFromX -= 3;
+                    }
+                    else
+                    {
+                        platform.GoingRight = true;
+                    }
+                }
+            }
         }
 
     }

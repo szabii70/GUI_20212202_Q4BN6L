@@ -15,14 +15,15 @@ namespace EscapeFromZaun.WpfLogic
         public int DrawFromY { get; set; }
         int width;
         int height;
-
-
+        public bool Moveable { get; set; }
+        public bool GoingRight { get; set; }
         public Platform(int drawFromX, int drawFromY, int width, int height)
         {
             this.DrawFromX = drawFromX;
             this.DrawFromY = drawFromY;
             this.width = width;
             this.height = height;
+            this.GoingRight = true;
         }
         public override Geometry Area
         {
