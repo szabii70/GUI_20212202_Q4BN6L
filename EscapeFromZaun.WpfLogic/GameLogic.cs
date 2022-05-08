@@ -122,7 +122,7 @@ namespace EscapeFromZaun.WpfLogic
                     }
                     else if (lines[i][j] == 'F')
                     {
-                        Platforms.Add(new FinishPlatform(j * platformWidth, roofCord + i * 100 + 1000, 100, 100));
+                        Platforms.Add(new FinishPlatform(j * platformWidth, roofCord + i * 100 + 1000, 400, 200));
                     }
                     else if (lines[i][j] == 'E')
                     {
