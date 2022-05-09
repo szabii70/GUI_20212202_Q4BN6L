@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Views\Animation\PlayMenu.mp4" />
     <None Remove="Views\Audio\Songs\piu2.wav" />
+    <None Remove="Views\Audio\Songs\shoot2.wav" />
     <None Remove="Views\Images\Arrow.png" />
     <None Remove="Views\Images\ArrowRight.png" />
     <None Remove="Views\Images\GameImages\JinxMove\JumpLeft\0001.png" />
@@ -86,6 +87,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Audio\Songs\piu2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Audio\Songs\shoot2.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\GameImages\JinxMove\JumpLeft\0001.png">

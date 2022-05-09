@@ -58,7 +58,7 @@ namespace EscapeFromZaun.Renderer
 
                 foreach (var item in logic.Bullets)
                 {
-                    drawingContext.DrawEllipse(item.ItemBrush, null, new Point(item.Center.X, item.Center.Y), 5, 5);
+                    drawingContext.DrawEllipse(item.ItemBrush, null, new Point(item.Center.X, item.Center.Y), 10, 10);
                 }
 
 

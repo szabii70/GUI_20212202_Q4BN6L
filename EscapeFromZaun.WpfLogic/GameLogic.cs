@@ -201,7 +201,7 @@ namespace EscapeFromZaun.WpfLogic
                 Bullet bullet = new Bullet(new System.Drawing.Point((int)MainPlayer.Hitbox.Bounds.X - 60, (int)MainPlayer.Hitbox.Bounds.Y + 20), new System.Windows.Vector(-20, 0));
 
                 bullet.Type = BulletType.player;
-                SoundPlayer soundPlayer = new SoundPlayer("Views/Audio/Songs/piu2.wav");
+                SoundPlayer soundPlayer = new SoundPlayer("Views/Audio/Songs/shoot2.wav");
                 soundPlayer.Play();
                 
                 
@@ -218,7 +218,7 @@ namespace EscapeFromZaun.WpfLogic
                 Bullet bullet = new Bullet(new System.Drawing.Point((int)MainPlayer.Hitbox.Bounds.X + 150, (int)MainPlayer.Hitbox.Bounds.Y + 20), new System.Windows.Vector(20, 0));
 
                 bullet.Type = BulletType.player;
-                SoundPlayer soundPlayer = new SoundPlayer("Views/Audio/Songs/piu2.wav");
+                SoundPlayer soundPlayer = new SoundPlayer("Views/Audio/Songs/shoot2.wav");
                 soundPlayer.Play();
                 Bullets.Add(bullet);
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
 namespace EscapeFromZaun.WpfLogic
@@ -27,7 +28,8 @@ namespace EscapeFromZaun.WpfLogic
         {
             get
             {
-                return Brushes.Yellow;
+                //return Brushes.Yellow;
+                return new ImageBrush(new BitmapImage(new Uri(@"../../../../EscapeFromZaun/Views/Images/GameImages/bullet.png", UriKind.RelativeOrAbsolute)));
             }
 
         }
