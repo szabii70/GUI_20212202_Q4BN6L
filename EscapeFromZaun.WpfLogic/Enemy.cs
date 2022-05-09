@@ -15,7 +15,8 @@ namespace EscapeFromZaun.WpfLogic
         public int DrawFromY { get; set; }
         int width;
         int height;
-
+        
+        
 
         public Enemy(int drawFromX, int drawFromY, int width, int height, int health, int damage)
         {
@@ -48,12 +49,25 @@ namespace EscapeFromZaun.WpfLogic
             }
         }
 
+        public Brush EnemyBrush(bool left, bool right)
+        {
+            if (left == true)
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/caitlynleft.png"), UriKind.RelativeOrAbsolute)));
+            }
+            else if(right == true)
+            {
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/caitlyn2.png"), UriKind.RelativeOrAbsolute)));
+            }
+            return new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/caitlynleft.png"), UriKind.RelativeOrAbsolute)));
+        }
+
         public override Brush ItemBrush
         {
             get
             {
                 //return Brushes.Red;
-                return new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/caitlyn2.png"), UriKind.RelativeOrAbsolute)));
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/caitlynleft.png"), UriKind.RelativeOrAbsolute)));
             }
         }
 

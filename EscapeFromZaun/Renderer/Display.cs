@@ -16,7 +16,7 @@ namespace EscapeFromZaun.Renderer
         Size windowSize;
         IGameLogic logic;
         PlayerLogic player;
-
+        
         public Brush BackgroundBrush
         {
             get
@@ -52,12 +52,13 @@ namespace EscapeFromZaun.Renderer
 
                 foreach (var item in logic.Enemies)
                 {
-                    drawingContext.DrawGeometry(item.ItemBrush, null, item.Area);
+                    drawingContext.DrawGeometry(logic.EnemyBrush, null, item.Area);
                     //drawingContext.DrawGeometry(Brushes.Yellow, null, item.CollisonArea);
                 }
 
                 foreach (var item in logic.Bullets)
                 {
+                    
                     drawingContext.DrawEllipse(item.ItemBrush, null, new Point(item.Center.X, item.Center.Y), 10, 10);
                 }
 
