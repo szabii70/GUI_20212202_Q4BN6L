@@ -109,7 +109,7 @@
                 </TextBox.Background>
             </TextBox>
 
-            <Button Background="{x:Null}" Grid.Column="1" Grid.Row="4" Command="{Binding WriteCommand}" x:Name="bt_write" Width="70" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left">
+            <Button Background="{x:Null}" Grid.Column="1" Grid.Row="4" Command="{Binding WriteCommand}" x:Name="bt_write" Width="70" Style="{StaticResource RoundButton}" HorizontalAlignment="Left">
                 <Image Source="/Views/Images/ArrowRight.png"/>
             </Button>
         </Grid>

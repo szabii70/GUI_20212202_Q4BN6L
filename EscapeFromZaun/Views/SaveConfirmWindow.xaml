@@ -48,10 +48,10 @@
         </Label>
 
 
-        <Button Background="{x:Null}" Grid.Column="0" Grid.Row="3" Margin="20,10,20,20"  Click="Button_Click">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="0" Grid.Row="3" Margin="20,10,20,20"  Click="Button_Click">
             <Image Source="/Views/Images/YesButton.png" Stretch="Fill"></Image>
         </Button>
-        <Button Background="{x:Null}" Grid.Column="1" Grid.Row="3" Margin="20,10,20,20" Click="Button_Click_1">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="1" Grid.Row="3" Margin="20,10,20,20" Click="Button_Click_1">
             <Image Source="/Views/Images/NoButton.png" Stretch="Fill"></Image>
         </Button>
     </Grid>

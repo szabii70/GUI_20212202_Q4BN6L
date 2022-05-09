@@ -40,7 +40,7 @@
             </Label.Foreground>
         </Label>
 
-        <Button Background="{x:Null}" Grid.Column="1" Grid.Row="2"   Click="Button_Click">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="1" Grid.Row="2"   Click="Button_Click">
             <Image Source="/Views/Images/OKButton.png" Stretch="Fill"></Image>
         </Button>
     </Grid>

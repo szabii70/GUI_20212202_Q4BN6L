@@ -39,10 +39,10 @@
             </Label.Foreground>
         </Label>
 
-        <Button Background="{x:Null}" Grid.Column="0" Grid.Row="1" Margin="20,47,20,10" x:Name="resume" Click="resume_Click" Grid.RowSpan="2">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="0" Grid.Row="1" Margin="20,47,20,10" x:Name="resume" Click="resume_Click" Grid.RowSpan="2">
             <Image Source="/Views/Images/ResumeButton.png" Stretch="Fill"></Image>
         </Button>
-        <Button Background="{x:Null}" Grid.Column="2" Grid.Row="1"  x:Name="quit" Click="quit_Click" Margin="20,47,20,10" Grid.RowSpan="2">
+        <Button Style="{StaticResource RoundButton}" Background="{x:Null}" Grid.Column="2" Grid.Row="1"  x:Name="quit" Click="quit_Click" Margin="20,47,20,10" Grid.RowSpan="2">
             <Image Source="/Views/Images/QuitButton.png" Stretch="Fill"></Image>
         </Button>
     </Grid>
