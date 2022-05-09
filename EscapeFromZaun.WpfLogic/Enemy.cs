@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace EscapeFromZaun.WpfLogic
 {
@@ -15,13 +17,14 @@ namespace EscapeFromZaun.WpfLogic
         int height;
 
 
-        public Enemy(int drawFromX, int drawFromY, int width, int height, int health)
+        public Enemy(int drawFromX, int drawFromY, int width, int height, int health, int damage)
         {
             this.DrawFromX = drawFromX;
             this.DrawFromY = drawFromY;
             this.width = width;
             this.height = height;
             this.health = health;
+            this.Damage = damage;
             
         }
 
@@ -49,7 +52,8 @@ namespace EscapeFromZaun.WpfLogic
         {
             get
             {
-                return Brushes.Red;
+                //return Brushes.Red;
+                return new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/caitlyn2.png"), UriKind.RelativeOrAbsolute)));
             }
         }
 

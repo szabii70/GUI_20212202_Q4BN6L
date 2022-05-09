@@ -109,7 +109,7 @@ namespace EscapeFromZaun.WpfLogic
                     var tmpC = tmp[j];
                     if (lines[i][j] == 'J')
                     {
-                        MainPlayer = new PlayerLogic(350, 200, 10) { DrawFromX = j * platformWidth, DrawFromY = roofCord + i * 100 + 1000 }; //384 is platfrom width but it can also be calculated by windowWidth / 5
+                        MainPlayer = new PlayerLogic(350, 200, 10, 2) { DrawFromX = j * platformWidth, DrawFromY = roofCord + i * 100 + 1000 }; //384 is platfrom width but it can also be calculated by windowWidth / 5
                     }
                     else if (lines[i][j] == 'P')
                     {
@@ -126,7 +126,7 @@ namespace EscapeFromZaun.WpfLogic
                     }
                     else if (lines[i][j] == 'E')
                     {
-                        Enemies.Add(new Enemy(j * platformWidth, roofCord + i * 100 + 1000, 100, 200, 7));
+                        Enemies.Add(new Enemy(j * platformWidth, roofCord + i * 100 + 1000, 100, 200, 7,1));
                     }
                     else if (lines[i][j] == 'M')
                     {
@@ -195,7 +195,7 @@ namespace EscapeFromZaun.WpfLogic
         public void PlayerShoot() //UJ
         {
 
-            MainPlayer.Damage = 2;
+            
             if (lookLeft == true && lookRight == false) //Ha balra nez akkor arra lõ
             {
                 Bullet bullet = new Bullet(new System.Drawing.Point((int)MainPlayer.Hitbox.Bounds.X - 60, (int)MainPlayer.Hitbox.Bounds.Y + 20), new System.Windows.Vector(-20, 0));
@@ -401,7 +401,7 @@ namespace EscapeFromZaun.WpfLogic
             {
                 //MOZGAS------------------------------------------------------------------------------------------------------
 
-                enemy.Damage = 1; // DAMAGE
+                
 
                 //enemy.DrawFromX -= (int)enemySpeed;
 
@@ -584,7 +584,7 @@ namespace EscapeFromZaun.WpfLogic
 
                 if (collisonLeft == true && collisonRight == false)
                 {
-                    Bullet bullet = new Bullet(new System.Drawing.Point((int)Enemies[i].Area.Bounds.X - 60, (int)Enemies[i].Area.Bounds.Y + 75), new System.Windows.Vector(-20, 0));
+                    Bullet bullet = new Bullet(new System.Drawing.Point((int)Enemies[i].Area.Bounds.X - 60, (int)Enemies[i].Area.Bounds.Y + 45), new System.Windows.Vector(-20, 0));
                     bullet.Type = BulletType.enemy;
                     Bullets.Add(bullet);
 
@@ -594,7 +594,7 @@ namespace EscapeFromZaun.WpfLogic
                 }
                 else if (collisonRight == true && collisonLeft == false)
                 {
-                    Bullet bullet = new Bullet(new System.Drawing.Point((int)Enemies[i].Area.Bounds.X + 150, (int)Enemies[i].Area.Bounds.Y + 75), new System.Windows.Vector(20, 0));
+                    Bullet bullet = new Bullet(new System.Drawing.Point((int)Enemies[i].Area.Bounds.X + 150, (int)Enemies[i].Area.Bounds.Y + 45), new System.Windows.Vector(20, 0));
                     
                     bullet.Type = BulletType.enemy;
                     Bullets.Add(bullet);

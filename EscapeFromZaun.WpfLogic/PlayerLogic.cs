@@ -37,12 +37,12 @@ namespace EscapeFromZaun.WpfLogic
         }
 
         public int Damage { get; set; }
-        public PlayerLogic(int width, int height, int health)
+        public PlayerLogic(int width, int height, int health, int damage)
         {
             this.width = width;
             this.height = height;
             this.health = health;
-           
+            this.Damage = damage;
             
             LoadImages();
         }
