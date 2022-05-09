@@ -80,7 +80,7 @@ namespace EscapeFromZaun.Renderer
                 FlowDirection.LeftToRight, new Typeface(new FontFamily("Bookman Old Style"), FontStyles.Normal, FontWeights.Bold, FontStretches.Normal), 40, (SolidColorBrush)new BrushConverter().ConvertFrom("#e5c179")),
                 new Point(windowSize.Width - 145, 25));
 
-                drawingContext.DrawEllipse(Brushes.Red, null, new Point(windowSize.Width - 55, 45), 25, 25);
+                drawingContext.DrawEllipse(new ImageBrush(new BitmapImage(new Uri(Path.Combine(@"../../../../EscapeFromZaun/Views/Images/GameImages/heart3.png"), UriKind.RelativeOrAbsolute))), null, new Point(windowSize.Width - 55, 45), 23, 23);
             }
         }
 
