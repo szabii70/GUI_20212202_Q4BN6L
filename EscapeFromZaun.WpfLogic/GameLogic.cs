@@ -51,12 +51,13 @@ namespace EscapeFromZaun.WpfLogic
         public List<Enemy> Enemies { get; set; }
         //Collison
         bool collisonEnter = false;
-        bool collisonLeft = false; //ha balrol erkezik a karakter 
-        bool collisonRight = false; //ha jobbrol erkezik a karakter 
+        public bool collisonLeft = false; //ha balrol erkezik a karakter 
+        public bool collisonRight = false; //ha jobbrol erkezik a karakter 
         //Attack
         int TimeCount = 0;
 
         public List<Bullet> Bullets { get; set; }
+        public Brush EnemyBrush { get; set; }
 
         //ENEMY-------------------------------------------------------------------------------------------------------------------------------
         public void SetupSizes(System.Windows.Size size)
@@ -554,7 +555,7 @@ namespace EscapeFromZaun.WpfLogic
                             {
                                 Bullets.RemoveAt(k);
                                 MainPlayer.Health -= Enemies[j].Damage;
-                                if (MainPlayer.Health < 0)
+                                if (MainPlayer.Health < 1)
                                 {
                                     TimeCount = 0;
                                     Player.Outcome = "Defeat";
@@ -596,7 +597,8 @@ namespace EscapeFromZaun.WpfLogic
                     bullet.Type = BulletType.enemy;
                     Bullets.Add(bullet);
 
-                    
+
+                    EnemyBrush = Enemies[i].EnemyBrush(collisonLeft, collisonRight);
                     //loves balra
 
                 }
@@ -607,11 +609,9 @@ namespace EscapeFromZaun.WpfLogic
                     bullet.Type = BulletType.enemy;
                     Bullets.Add(bullet);
 
-                    
+                    EnemyBrush = Enemies[i].EnemyBrush(collisonLeft, collisonRight);
                     // loves jobbra
                 }
-
-
 
             }
 

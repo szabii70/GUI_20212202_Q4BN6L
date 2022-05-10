@@ -19,7 +19,7 @@ namespace EscapeFromZaun.WpfLogic
         public List<Platform> Platforms { get; set; }
         public Rect BackgroundRect { get; }
         public Brush PlayerBrush { get; set; }
-
+        public Brush EnemyBrush { get; set; }
         public List<Enemy> Enemies { get; set; }
 
         public List<Bullet> Bullets { get; set; }
