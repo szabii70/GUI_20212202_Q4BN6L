@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <None Remove="Views\Animation\PlayMenu.mp4" />
+    <None Remove="Views\Audio\Songs\Final song.mp3" />
     <None Remove="Views\Audio\Songs\piu2.wav" />
     <None Remove="Views\Audio\Songs\shoot2.wav" />
     <None Remove="Views\Images\Arrow.png" />
@@ -271,6 +272,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\Images\ArrowRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\Audio\Songs\Final song.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Resource Include="Views\Images\OKButton.png">

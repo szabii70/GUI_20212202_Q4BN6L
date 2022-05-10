@@ -19,6 +19,8 @@ namespace EscapeFromZaun.ViewModels
         public IRndBackgroundLogic _backgroundLogic { get; set; }
         public ICommand BackToMenuCommand { get; set; }
         public ICommand MuteCommand { get; set; }
+        public ICommand MuteSoundCommand { get; set; }
+
 
         public bool Muted
         { 
@@ -35,6 +37,13 @@ namespace EscapeFromZaun.ViewModels
                 return _backgroundLogic.MutedSound;
             }
         }
+        public bool NotMutedSound
+        {
+            get
+            {
+                return !MutedSound;
+            }
+        }
         public bool NotMuted
         {
             get
@@ -49,10 +58,14 @@ namespace EscapeFromZaun.ViewModels
             this._backgroundLogic = _backgroundLogic;
             BackToMenuCommand = new RelayCommand(() => BackToMenuButton_CLick());
             MuteCommand = new RelayCommand(() => this._backgroundLogic.ToggleMuted());
+            MuteSoundCommand = new RelayCommand(() => this._backgroundLogic.ToggleMutedSound());
+
             Messenger.Register<SettingsMenuWindowViewModel, string, string>(this, "SoundInfo", (recipient, msg) =>
             {
                 OnPropertyChanged("Muted");
                 OnPropertyChanged("NotMuted");
+                OnPropertyChanged("MutedSound");
+                OnPropertyChanged("NotMutedSound");
 
             });
         }

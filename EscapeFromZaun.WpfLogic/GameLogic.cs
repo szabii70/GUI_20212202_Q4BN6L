@@ -13,6 +13,7 @@ namespace EscapeFromZaun.WpfLogic
 {
     public class GameLogic : IGameLogic
     {
+        IRndBackgroundLogic backgroundLogic;
         IMapGeneratingRepository mapRepo;
         bool lookRight;
         bool lookLeft;
@@ -30,6 +31,7 @@ namespace EscapeFromZaun.WpfLogic
         public Brush PlayerBrush { get; set; }
         public PlayerModel Player { get; set; }
 
+        public MediaPlayer soundPlayer { get; set; }
 
         public enum Directions { left, right }
         public PlayerLogic MainPlayer { get; set; }
@@ -75,8 +77,9 @@ namespace EscapeFromZaun.WpfLogic
 
             BackgroundDatas = new BackgroundDatas(windowSize.Width, 10000) { DrawFromX = 0, DrawFromY = roofCord - 300 }; //Késõbb lehet a kép tetejét bõvítjük, ahelyett, hogymagasabbról kezdõdjön a kirajzolás
         }
-        public GameLogic(IMapGeneratingRepository mapRepo)
+        public GameLogic(IMapGeneratingRepository mapRepo, IRndBackgroundLogic backgroundLogic)
         {
+            this.backgroundLogic = backgroundLogic;
             this.mapRepo = mapRepo;
             Player = new PlayerModel()
             {
@@ -84,6 +87,15 @@ namespace EscapeFromZaun.WpfLogic
                 Outcome = "Victory",
                 PlayerRunTime = new DateTime(0)
             };
+            soundPlayer = new MediaPlayer();
+            string path2 = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+            string newpath2 = System.IO.Path.GetFullPath(System.IO.Path.Combine(path2, @"..\..\..\")) + "Views\\Audio\\Songs\\shoot2.wav";
+            soundPlayer.Open(new Uri(newpath2));
+            soundPlayer.Volume = backgroundLogic.EffectSound;
+            if (backgroundLogic.MutedSound == true)
+            {
+                soundPlayer.Volume = 0;
+            }
         }
 
 
@@ -194,6 +206,7 @@ namespace EscapeFromZaun.WpfLogic
 
         public void PlayerShoot() //UJ
         {
+            soundPlayer.Stop();
 
             
             if (lookLeft == true && lookRight == false) //Ha balra nez akkor arra lõ
@@ -201,11 +214,7 @@ namespace EscapeFromZaun.WpfLogic
                 Bullet bullet = new Bullet(new System.Drawing.Point((int)MainPlayer.Hitbox.Bounds.X - 60, (int)MainPlayer.Hitbox.Bounds.Y + 20), new System.Windows.Vector(-20, 0));
 
                 bullet.Type = BulletType.player;
-                SoundPlayer soundPlayer = new SoundPlayer("Views/Audio/Songs/shoot2.wav");
                 soundPlayer.Play();
-                
-                
-
                 Bullets.Add(bullet);
                 
 
@@ -218,7 +227,6 @@ namespace EscapeFromZaun.WpfLogic
                 Bullet bullet = new Bullet(new System.Drawing.Point((int)MainPlayer.Hitbox.Bounds.X + 150, (int)MainPlayer.Hitbox.Bounds.Y + 20), new System.Windows.Vector(20, 0));
 
                 bullet.Type = BulletType.player;
-                SoundPlayer soundPlayer = new SoundPlayer("Views/Audio/Songs/shoot2.wav");
                 soundPlayer.Play();
                 Bullets.Add(bullet);
 

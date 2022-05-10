@@ -13,9 +13,12 @@ namespace EscapeFromZaun.WpfLogic
 {
     public class RndBackgroundLogic : IRndBackgroundLogic
     {
+        public MediaPlayer sp { get; set; }
         public MediaPlayer mp { get; set; }
         public bool  Muted { get; set; }
         public bool MutedSound { get; set; }
+
+        public double EffectSound { get; set; }
 
         private double volume;
         IMessenger messenger;
@@ -39,11 +42,17 @@ namespace EscapeFromZaun.WpfLogic
         {
             this.messenger = messenger;
             string path = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
-            string newpath = System.IO.Path.GetFullPath(System.IO.Path.Combine(path, @"..\..\..\")) + "Views\\Audio\\Songs\\Imagine Dragons & JID - Enemy (from the series Arcane League of Legends) _ Official Music Video (online-audio-converter.com).wav";
+            string newpath = System.IO.Path.GetFullPath(System.IO.Path.Combine(path, @"..\..\..\")) + "Views\\Audio\\Songs\\Final song.mp3";
+            string path2 = System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+            string newpath2 = System.IO.Path.GetFullPath(System.IO.Path.Combine(path, @"..\..\..\")) + "Views\\Audio\\Songs\\shoot2.wav";
             mp = new MediaPlayer();
             mp.Open(new Uri(newpath));
             mp.Play();
             volume = mp.Volume;
+            sp = new MediaPlayer();
+            sp.Open(new Uri(newpath2));
+            EffectSound = 1;
+            sp.Volume = EffectSound;
         }
 
         public void ToggleMuted()
@@ -59,6 +68,22 @@ namespace EscapeFromZaun.WpfLogic
                 mp.Volume = volume;
                 Muted = false;
                 messenger.Send("Muted", "SoundInfo");
+            }
+
+        }
+        public void ToggleMutedSound()
+        {
+            if (!MutedSound)
+            {
+                sp.Volume = 0;
+                MutedSound = true;
+                messenger.Send("MutedSound", "SoundInfo");
+            }
+            else
+            {
+                sp.Volume = volume;
+                MutedSound = false;
+                messenger.Send("MutedSound", "SoundInfo");
             }
 
         }

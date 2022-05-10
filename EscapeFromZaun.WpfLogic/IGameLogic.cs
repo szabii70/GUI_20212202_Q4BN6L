@@ -13,6 +13,7 @@ namespace EscapeFromZaun.WpfLogic
         public event EventHandler GameFinished;
         public event EventHandler GamePaused;
 
+       // public IRndBackgroundLogic backgroundLogic { get; set; }
         PlayerModel Player { get; set; }
         public PlayerLogic MainPlayer { get; set; }
         public List<Platform> Platforms { get; set; }

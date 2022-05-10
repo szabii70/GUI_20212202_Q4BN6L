@@ -184,7 +184,7 @@
                     </LinearGradientBrush>
                 </Label.Foreground>
             </Label>
-            <Slider Style="{StaticResource Horizontal_Slider}" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Minimum="0" Maximum="1" Background="#ca9c4b" Foreground="AliceBlue" HorizontalContentAlignment="Center"/>
+            <Slider Style="{StaticResource Horizontal_Slider}" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" Value="{Binding _backgroundLogic.EffectSound}" IsEnabled="{Binding NotMutedSound}" Minimum="0" Maximum="1" Background="#ca9c4b" Foreground="AliceBlue" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="Slider_PreviewMouseLeftButtonUp"/>
             <Slider Style="{StaticResource Horizontal_Slider}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Value="{Binding _backgroundLogic.mp.Volume}" IsEnabled="{Binding NotMuted}" Minimum="0" Maximum="1" Background="#ca9c4b" Foreground="AliceBlue" HorizontalContentAlignment="Center" 
                     Orientation="Horizontal" />
             <CheckBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Background="{x:Null}" FontSize="30">
@@ -192,7 +192,7 @@
                     <ScaleTransform ScaleX="4" ScaleY="4"/>
                 </CheckBox.LayoutTransform>
             </CheckBox>
-            <Button Grid.Column="2" Grid.Row="0" BorderThickness="0" Background="{Binding MutedSound, Converter={StaticResource c}}" Command="{Binding MuteCommand}" Style="{StaticResource RoundButton}"></Button>
+            <Button Grid.Column="2" Grid.Row="0" BorderThickness="0" Background="{Binding MutedSound, Converter={StaticResource c}}" Command="{Binding MuteSoundCommand}" Style="{StaticResource RoundButton}"></Button>
             <Button Grid.Column="2" Grid.Row="1" BorderThickness="0" Background="{Binding Muted, Converter={StaticResource c}}" Command="{Binding MuteCommand}" Style="{StaticResource RoundButton}"></Button>
         </Grid>
         <Button Background="{x:Null}" Grid.Row="1" Grid.Column="1" Command="{Binding BackToMenuCommand}" Style="{StaticResource RoundButton}">

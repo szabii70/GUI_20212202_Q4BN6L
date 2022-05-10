@@ -6,10 +6,14 @@ namespace EscapeFromZaun.WpfLogic
     {
         string GetRandomImage();
         MediaPlayer mp { get; set; }
+        MediaPlayer sp { get; set; }
+
         bool Muted { get; set; }
         bool MutedSound { get; set; }
-
+        double EffectSound { get; set; }
         void ToggleMuted();
+        void ToggleMutedSound();
+
 
     }
 }
